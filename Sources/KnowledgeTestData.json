@@ -1,0 +1,64 @@
+{
+  "QuestionCount": 10,
+  "TimeSeconds": 700,
+  "Questions": [
+    {
+      "Number": 1,
+      "Type": "OneFromMulty",
+      "QuestionText": "Что такое многослойный персептрон?",
+      "PictureBase64": "",
+      "Answers": [
+        {
+          "AnswerText": "Вид сети ...",
+          "IsRight": "true"
+        },
+        {
+          "AnswerText": "Вид функции ...",
+          "IsRight": "false"
+        },
+        {
+          "AnswerText": "Вид параметра ...",
+          "IsRight": "false"
+        }
+      ],
+	  "StudentAnswer":""
+    },
+    {
+      "Number": 2,
+      "Type": "MultuFromMulty",
+      "QuestionText": "Состав сверточной сети",
+      "PictureBase64": "",
+      "Answers": [
+        {
+          "AnswerText": "Сверточный слой",
+          "IsRight": "true"
+        },
+        {
+          "AnswerText": "Многослойный персептрон",
+          "IsRight": "true"
+        },
+        {
+          "AnswerText": "Слой максимального объединения",
+          "IsRight": "true"
+        },
+        {
+          "AnswerText": "Рекуррентный слой",
+          "IsRight": "false"
+        }
+      ],
+	  "StudentAnswer":""
+    },
+    {
+      "Number": 3,
+      "Type": "DirectAnswer",
+      "QuestionText": "На графике изображена функция ____. Структура сети приведена ниже. Какой будет выход сети на Y1 при x1 = 3, x2 = 7.8, x3 = 10.3",
+      "PictureBase64": "",
+      "Answers": [
+        {
+          "AnswerText": "7.78"
+        }
+      ],
+	  "StudentAnswer":""
+    }
+  ]
+}
