@@ -10,18 +10,18 @@
       "Answers": [
         {
           "AnswerText": "Вид сети ...",
-          "IsRight": "true"
+          "IsRight": true
         },
         {
           "AnswerText": "Вид функции ...",
-          "IsRight": "false"
+          "IsRight": false
         },
         {
           "AnswerText": "Вид параметра ...",
-          "IsRight": "false"
+          "IsRight": false
         }
       ],
-	  "StudentAnswer":""
+      "StudentAnswer": ""
     },
     {
       "Number": 2,
@@ -31,22 +31,22 @@
       "Answers": [
         {
           "AnswerText": "Сверточный слой",
-          "IsRight": "true"
+          "IsRight": true
         },
         {
           "AnswerText": "Многослойный персептрон",
-          "IsRight": "true"
+          "IsRight": true
         },
         {
           "AnswerText": "Слой максимального объединения",
-          "IsRight": "true"
+          "IsRight": true
         },
         {
           "AnswerText": "Рекуррентный слой",
-          "IsRight": "false"
+          "IsRight": false
         }
       ],
-	  "StudentAnswer":""
+      "StudentAnswer": ""
     },
     {
       "Number": 3,
@@ -58,7 +58,7 @@
           "AnswerText": "7.78"
         }
       ],
-	  "StudentAnswer":""
+      "StudentAnswer": ""
     }
   ]
 }

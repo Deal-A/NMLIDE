@@ -8,7 +8,9 @@ using System.Text;
 using System.Threading.Tasks;
 using System.IO;
 using System.Windows.Forms;
-using Newtonsoft.Json;
+//using Newtonsoft.Json;
+
+
 
 namespace V_1._2
 {
@@ -26,13 +28,17 @@ namespace V_1._2
         private Button finishButton;
         private ListView questionListView;
 
-        
+        private QuestionImage QuestionImage;
+
+
+
         private int totalScore = 0;
         public KnowledgeTesting()
         {
             InitializeComponent();
 
-            test = JsonConvert.DeserializeObject<Test>(File.ReadAllText("D:\\_1Study\\ВКР\\P\\V_1\\V_1.2\\Sources\\KnowledgeTestData.json"));
+            //test = JsonConvert.DeserializeObject<Test>(File.ReadAllText("D:\\_1Study\\ВКР\\P\\V_1\\V_1.2\\Sources\\KnowledgeTestData.json"));
+            test = System.Text.Json.JsonSerializer.Deserialize<Test>(File.ReadAllText("D:\\_1Study\\ВКР\\P\\V_1\\V_1.2\\Sources\\KnowledgeTestData.json"));
             questions = test.Questions;
 
             //this.flowLayoutPanel1.Controls.Add(listView1);
@@ -75,28 +81,25 @@ namespace V_1._2
             // Очистка FlowLayoutPanel
             flowLayoutPanel1.Controls.Clear();
 
-            // Отображение текста вопроса
-            Label questionLabel = new Label();
-            questionLabel.Text = question.QuestionText;
-            flowLayoutPanel1.Controls.Add(questionLabel);
+            richTextBox1.Lines[0] = question.QuestionText;
+
+            var answersArr = question.Answers.ToArray();
 
 
-
-            // Отображение ответов в зависимости от типа вопроса
-            foreach (Answer answer in question.Answers)
+            for (int i = 0; i< answersArr.Length; i++)
             {
                 if (question.Type == "OneFromMulty")
                 {
                     RadioButton radioButton = new RadioButton();
-                    radioButton.Text = answer.AnswerText;
-                    radioButton.Tag = answer.IsRight; // Сохраняем информацию о правильном ответе
+                    radioButton.Text = question.Answers[i].AnswerText;
+                    radioButton.Tag = question.Answers[i].IsRight; // Сохраняем информацию о правильном ответе
                     flowLayoutPanel1.Controls.Add(radioButton);
                 }
                 else if (question.Type == "MultuFromMulty")
                 {
                     CheckBox checkBox = new CheckBox();
-                    checkBox.Text = answer.AnswerText;
-                    checkBox.Tag = answer.IsRight; // Сохраняем информацию о правильном ответе
+                    checkBox.Text = question.Answers[i].AnswerText;
+                    checkBox.Tag = question.Answers[i].IsRight; // Сохраняем информацию о правильном ответе
                     flowLayoutPanel1.Controls.Add(checkBox);
                 }
                 else if (question.Type == "DirectAnswer")
@@ -105,6 +108,12 @@ namespace V_1._2
                     flowLayoutPanel1.Controls.Add(textBox);
                 }
             }
+
+            //// Отображение ответов в зависимости от типа вопроса
+            //foreach (Answer answer in question.Answers)
+            //{
+
+            //}
         }
 
         //private void listView1_SelectedIndexChanged(object sender, EventArgs e)
@@ -341,6 +350,14 @@ namespace V_1._2
         {
             
         }
+
+        private int _qetQuestionImage() {
+            return 0;
+        }
+        private void pictureBox1_Click(object sender, EventArgs e)
+        {
+            QuestionImage = new QuestionImage(_qetQuestionImage());
+        }
     }
 
     public class Test
@@ -358,7 +375,7 @@ namespace V_1._2
         public string PictureBase64 { get; set; }
         public List<Answer> Answers { get; set; }
 
-        public string StudentAnswer { get; set; }
+        //public string StudentAnswer { get; set; }
     }
 
     public class Answer
