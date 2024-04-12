@@ -21,7 +21,7 @@
           "IsRight": false
         }
       ],
-      "StudentAnswer": ""
+      "StudentAnswer": []
     },
     {
       "Number": 2,
@@ -46,7 +46,7 @@
           "IsRight": false
         }
       ],
-      "StudentAnswer": ""
+      "StudentAnswer": []
     },
     {
       "Number": 3,
@@ -58,7 +58,7 @@
           "AnswerText": "7.78"
         }
       ],
-      "StudentAnswer": ""
+      "StudentAnswer": []
     }
   ]
 }

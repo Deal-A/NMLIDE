@@ -62,7 +62,7 @@ namespace V_1._2
             this.flowLayoutPanel1.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
             this.flowLayoutPanel1.Location = new System.Drawing.Point(44, 377);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
-            this.flowLayoutPanel1.Size = new System.Drawing.Size(1117, 577);
+            this.flowLayoutPanel1.Size = new System.Drawing.Size(1117, 397);
             this.flowLayoutPanel1.TabIndex = 5;
             // 
             // listView1
@@ -73,7 +73,7 @@ namespace V_1._2
             this.listView1.HideSelection = false;
             this.listView1.Location = new System.Drawing.Point(1190, 51);
             this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(267, 992);
+            this.listView1.Size = new System.Drawing.Size(267, 790);
             this.listView1.TabIndex = 6;
             this.listView1.UseCompatibleStateImageBehavior = false;
             this.listView1.View = System.Windows.Forms.View.Details;
@@ -98,7 +98,7 @@ namespace V_1._2
             this.tableLayoutPanel1.Controls.Add(this.backButton1, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.nextButton1, 1, 0);
             this.tableLayoutPanel1.Controls.Add(this.finishButton1, 3, 0);
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(41, 1004);
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(44, 874);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 1;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
@@ -173,7 +173,7 @@ namespace V_1._2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(1479, 1055);
+            this.ClientSize = new System.Drawing.Size(1554, 1055);
             this.Controls.Add(this.pictureBox1);
             this.Controls.Add(this.richTextBox1);
             this.Controls.Add(this.tableLayoutPanel1);

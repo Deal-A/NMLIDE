@@ -1,0 +1,53 @@
+{
+  "QuestionCount": 10,
+  "TimeSeconds": 700,
+  "Questions": [
+
+    {
+      "Number": 1,
+      "Type": "OneFromMulty",
+      "QuestionText": "Что такое многослойный персептрон?",
+      "PictureBase64": "",
+
+      "Answers": [
+        {
+          "AnswerText": "Вид сети ...",
+          "IsRight": true
+        },
+        {
+          "AnswerText": "Вид сети ...",
+          "IsRight": true
+        },
+        {
+          "AnswerText": "Вид сети ...",
+          "IsRight": true
+        }
+      ],
+
+      "StudentAnswer": ""
+    },
+    {
+      "Number": 2,
+      "Type": "MultuFromMulty",
+      "QuestionText": "Что такое многослойный персептрон?",
+      "PictureBase64": "",
+
+      "Answers": [
+        {
+          "AnswerText": "Вид сети ...",
+          "IsRight": true
+        },
+        {
+          "AnswerText": "Вид сети ...",
+          "IsRight": true
+        },
+        {
+          "AnswerText": "Вид сети ...",
+          "IsRight": true
+        }
+      ],
+
+      "StudentAnswer": ""
+    }
+  ]
+}

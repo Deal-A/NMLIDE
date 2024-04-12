@@ -8,8 +8,7 @@ using System.Text;
 using System.Threading.Tasks;
 using System.IO;
 using System.Windows.Forms;
-//using Newtonsoft.Json;
-
+using Newtonsoft.Json;
 
 
 namespace V_1._2
@@ -37,8 +36,12 @@ namespace V_1._2
         {
             InitializeComponent();
 
-            //test = JsonConvert.DeserializeObject<Test>(File.ReadAllText("D:\\_1Study\\ВКР\\P\\V_1\\V_1.2\\Sources\\KnowledgeTestData.json"));
-            test = System.Text.Json.JsonSerializer.Deserialize<Test>(File.ReadAllText("D:\\_1Study\\ВКР\\P\\V_1\\V_1.2\\Sources\\KnowledgeTestData.json"));
+            test= JsonConvert.DeserializeObject<Test>(File.ReadAllText("D:\\_1Study\\ВКР\\P\\V_1\\V_1.2\\Sources\\KnowledgeTestData.json"));
+
+            ///var a = tryJson.Questions[0].Answers.ToArray();
+
+            //test = JsonConvert.DeserializeObject<Test>(File.ReadAllText("D:\\_1Study\\ВКР\\P\\V_1\\V_1.2\\Sources\\TryJson.json"));
+            //test = System.Text.Json.JsonSerializer.Deserialize<Test>(File.ReadAllText("D:\\_1Study\\ВКР\\P\\V_1\\V_1.2\\Sources\\KnowledgeTestData.json"));
             questions = test.Questions;
 
             //this.flowLayoutPanel1.Controls.Add(listView1);
@@ -52,7 +55,7 @@ namespace V_1._2
         private void LoadQuestions()
         {
 
-            // Заполнение ListView
+            
             foreach (Question question in test.Questions)
             {
                 listView1.Items.Add(new ListViewItem(new string[] { question.Number.ToString(), question.QuestionText }));
@@ -61,7 +64,7 @@ namespace V_1._2
             listView1.SelectedIndexChanged += listView1_SelectedIndexChanged  ;
 
 
-            // Отображение первого вопроса
+            
             DisplayQuestion(currentQuestionIndex);
         }
 
@@ -74,46 +77,92 @@ namespace V_1._2
             }
         }
 
+
+
         private void DisplayQuestion(int index)
         {
             Question question = test.Questions[index];
 
-            // Очистка FlowLayoutPanel
+           
             flowLayoutPanel1.Controls.Clear();
 
-            richTextBox1.Lines[0] = question.QuestionText;
-
-            var answersArr = question.Answers.ToArray();
+            richTextBox1.Clear();
 
 
-            for (int i = 0; i< answersArr.Length; i++)
+            //richTextBox1.Lines.
+
+            richTextBox1.AppendText(question.QuestionText);
+
+            var answersArr = question.Answers[0];
+
+
+            int i = 0;
+            foreach (Answer answer in question.Answers)
             {
                 if (question.Type == "OneFromMulty")
                 {
+
+
+
                     RadioButton radioButton = new RadioButton();
-                    radioButton.Text = question.Answers[i].AnswerText;
-                    radioButton.Tag = question.Answers[i].IsRight; // Сохраняем информацию о правильном ответе
+                    radioButton.Text = answer.AnswerText;
+                    radioButton.Tag = answer.IsRight; 
+                    radioButton.Click += RadioButton_Click;
+
+                    // Студент ответил на вопрос.
+                    if (question.StudentAnswer.Count > 0)
+                    {
+                        //Установить если студент выбрал этот вариант
+                        radioButton.Checked = (int.Parse(question.StudentAnswer[0]) == i);
+                    }
+
                     flowLayoutPanel1.Controls.Add(radioButton);
                 }
                 else if (question.Type == "MultuFromMulty")
                 {
                     CheckBox checkBox = new CheckBox();
-                    checkBox.Text = question.Answers[i].AnswerText;
-                    checkBox.Tag = question.Answers[i].IsRight; // Сохраняем информацию о правильном ответе
+                    checkBox.Text = answer.AnswerText;
+                    checkBox.Tag = answer.IsRight; 
+                    checkBox.Click += RadioButton_Click;
                     flowLayoutPanel1.Controls.Add(checkBox);
                 }
                 else if (question.Type == "DirectAnswer")
                 {
                     TextBox textBox = new TextBox();
+                    textBox.TextChanged += RadioButton_Click;
                     flowLayoutPanel1.Controls.Add(textBox);
                 }
+                i++;
+            }
+        }
+
+
+
+        private void RadioButton_Click(object sender, EventArgs e)
+        {
+
+            //if 
+            int i = 0;
+            foreach (var control in flowLayoutPanel1.Controls) {
+                if (control.GetType() == typeof(RadioButton))
+                {
+                    if (((RadioButton)control).Checked) 
+                    {
+                        test.Questions[currentQuestionIndex].StudentAnswer.Clear();
+                        test.Questions[currentQuestionIndex].StudentAnswer.Add(i.ToString());
+                    }
+                }
+                if (control.GetType() == typeof(CheckBox))
+                {
+
+                }
+                if (control.GetType() == typeof(TextBox))
+                {
+
+                }
+                i++;
             }
 
-            //// Отображение ответов в зависимости от типа вопроса
-            //foreach (Answer answer in question.Answers)
-            //{
-
-            //}
         }
 
         //private void listView1_SelectedIndexChanged(object sender, EventArgs e)
@@ -373,14 +422,18 @@ namespace V_1._2
         public string Type { get; set; }
         public string QuestionText { get; set; }
         public string PictureBase64 { get; set; }
+
+
         public List<Answer> Answers { get; set; }
 
-        //public string StudentAnswer { get; set; }
+        public List<string> StudentAnswer { get; set; }
     }
 
     public class Answer
     {
         public string AnswerText { get; set; }
+
+        [JsonIgnore]
         public bool IsRight { get; set; }
     }
 }
