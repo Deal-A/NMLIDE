@@ -16,8 +16,10 @@ namespace V_1._2
     public partial class KnowledgeTesting : Form
     {
         private Test test;
-        private List<Question> questions;
+        private List<Question> _questions;
         private int currentQuestionIndex = 0;
+
+        private List<RichTextBox> _questionPreviewRTBList;
 
         private Label questionTextLabel;
         private ListBox answersListBox;
@@ -35,21 +37,22 @@ namespace V_1._2
         public KnowledgeTesting()
         {
             InitializeComponent();
+            _initFields();
 
-            test= JsonConvert.DeserializeObject<Test>(File.ReadAllText("D:\\_1Study\\ВКР\\P\\V_1\\V_1.2\\Sources\\KnowledgeTestData.json"));
+            LoadQuestions();
+
+        }
+
+        private void _initFields()
+        {
+            _questionPreviewRTBList = new List<RichTextBox>();
+            test = JsonConvert.DeserializeObject<Test>(File.ReadAllText("D:\\_1Study\\ВКР\\P\\V_1\\V_1.2\\Sources\\KnowledgeTestData.json"));
 
             ///var a = tryJson.Questions[0].Answers.ToArray();
 
             //test = JsonConvert.DeserializeObject<Test>(File.ReadAllText("D:\\_1Study\\ВКР\\P\\V_1\\V_1.2\\Sources\\TryJson.json"));
             //test = System.Text.Json.JsonSerializer.Deserialize<Test>(File.ReadAllText("D:\\_1Study\\ВКР\\P\\V_1\\V_1.2\\Sources\\KnowledgeTestData.json"));
-            questions = test.Questions;
-
-            //this.flowLayoutPanel1.Controls.Add(listView1);
-
-            LoadQuestions();
-
-            //CreateControls();
-            //DisplayQuestion();
+            _questions = test.Questions;
         }
 
         private void LoadQuestions()
@@ -61,11 +64,78 @@ namespace V_1._2
                 listView1.Items.Add(new ListViewItem(new string[] { question.Number.ToString(), question.QuestionText }));
             }
 
-            listView1.SelectedIndexChanged += listView1_SelectedIndexChanged  ;
+            listView1.SelectedIndexChanged += listView1_SelectedIndexChanged ;
+
+            _loadQuestions();
 
 
-            
             DisplayQuestion(currentQuestionIndex);
+        }
+
+        private void _loadQuestions() 
+        {
+            foreach (Question question in test.Questions)
+            {
+
+                RichTextBox richTextBox1 = new RichTextBox();
+
+                StringBuilder sb = new StringBuilder();
+                sb.Append(question.Number.ToString() + ". ");
+                sb.Append(question.QuestionText);
+                richTextBox1.Text = sb.ToString();
+
+                richTextBox1.ScrollBars = RichTextBoxScrollBars.None;
+                richTextBox1.WordWrap = true;
+
+                richTextBox1.Size = new Size(200,70);
+
+                richTextBox1.Click += _richTextBox1_Clicked;
+
+                richTextBox1.ReadOnly = true;
+                richTextBox1.BorderStyle = BorderStyle.None;
+
+                richTextBox1.Font = new Font(
+                    new FontFamily("Verdana"),
+                    12,
+                    FontStyle.Bold,
+                    GraphicsUnit.Pixel
+                    );
+
+                richTextBox1.BackColor = Color.FromArgb(255,255,255,255);
+
+                flowLayoutPanel4.Controls.Add(richTextBox1);
+
+                _questionPreviewRTBList.Add(richTextBox1);
+
+                listView1.Items.Add(new ListViewItem(new string[] { question.Number.ToString(), question.QuestionText }));
+            }
+        }
+
+        private void _richTextBox1_Clicked(object sender, EventArgs e) 
+        {
+            int i = _getRTBIndex(((RichTextBox)sender).Text);
+            if (-1 == i) 
+            {
+                return;
+            }
+            currentQuestionIndex = i;
+            DisplayQuestion(i);
+        }
+
+        private int _getRTBIndex(string curText) 
+        {
+
+            int i = 0;
+            foreach (Question curQuestion in _questions) 
+            {
+                if (curText.Contains(curQuestion.QuestionText)) 
+                {
+                    return i;
+                }
+
+                i++;
+            }
+            return -1;
         }
 
         public void listView1_SelectedIndexChanged(object sender, EventArgs e)
@@ -186,9 +256,28 @@ namespace V_1._2
                 // Устанавливаем изображение в PictureBox
                 pictureBox1.Image = image;
             }
-
         }
 
+
+        private void _updatePreviewRTB() 
+        {
+            int i = 0;
+            foreach(Question q in _questions) 
+            {
+                if (q.StudentAnswer.Count!=0 ) 
+                {
+                    _questionPreviewRTBList[i].Font = new Font(
+                    new FontFamily("Verdana"),
+                    12,
+                    FontStyle.Regular,
+                    GraphicsUnit.Pixel
+                    );
+                }
+                i++;
+            }
+        }
+
+        #region Обновление внутреннего представления проверки знаний по действию пользователя
         private void TextBox_TextChanged(object sender, EventArgs e)
         {
             //todo Несколько полей для каждого ответа
@@ -200,6 +289,8 @@ namespace V_1._2
 
                 i++;
             }
+
+            _updatePreviewRTB();
         }
 
         private void CheckBox_Click(object sender, EventArgs e)
@@ -216,11 +307,12 @@ namespace V_1._2
                 }
                 i++;
             }
+
+            _updatePreviewRTB();
         }
 
         private void RadioButton_Click(object sender, EventArgs e)
         {
-
             int i = 0;
             foreach (RadioButton control in flowLayoutPanel1.Controls) {
 
@@ -232,7 +324,10 @@ namespace V_1._2
                 i++;
             }
 
+            _updatePreviewRTB();
         }
+
+        #endregion Обновление внутреннего представления теста по действию пользователя
 
         //private void listView1_SelectedIndexChanged(object sender, EventArgs e)
         //{
@@ -435,6 +530,12 @@ namespace V_1._2
 
         private void KnowledgeTesting_Load(object sender, EventArgs e)
         {
+            listView1.AutoResizeColumns(ColumnHeaderAutoResizeStyle.HeaderSize);
+            listView1.LabelWrap = true;
+
+            ImageList imgLst = new ImageList();
+            imgLst.ImageSize = new Size(1, 100);
+            listView1.SmallImageList = imgLst;
 
         }
 
@@ -456,7 +557,7 @@ namespace V_1._2
 
         private void nextButton1_Click(object sender, EventArgs e)
         {
-            if ( currentQuestionIndex >= questions.Count-1)
+            if ( currentQuestionIndex >= _questions.Count-1)
             {
                 return;
             }
@@ -471,13 +572,13 @@ namespace V_1._2
 
         private void pictureBox1_Click(object sender, EventArgs e)
         {
-            if (string.IsNullOrEmpty(questions[currentQuestionIndex].PictureBase64))
+            if (string.IsNullOrEmpty(_questions[currentQuestionIndex].PictureBase64))
             {
                 return;
             }
             if (object.Equals(QuestionImage, null)) 
             {
-                QuestionImage = new QuestionImage(Convert.FromBase64String(questions[currentQuestionIndex].PictureBase64));
+                QuestionImage = new QuestionImage(Convert.FromBase64String(_questions[currentQuestionIndex].PictureBase64));
                 
             }
             QuestionImage.Show();

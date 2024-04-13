@@ -44,10 +44,13 @@ namespace V_1._2
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
             this.flowLayoutPanel3 = new System.Windows.Forms.FlowLayoutPanel();
+            this.flowLayoutPanel4 = new System.Windows.Forms.FlowLayoutPanel();
+            this.questionBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
             this.flowLayoutPanel2.SuspendLayout();
             this.flowLayoutPanel3.SuspendLayout();
+            ((System.ComponentModel.ISupportInitialize)(this.questionBindingSource)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -76,12 +79,14 @@ namespace V_1._2
             this.columnHeader1,
             this.columnHeader2});
             this.listView1.HideSelection = false;
-            this.listView1.Location = new System.Drawing.Point(1190, 51);
+            this.listView1.Location = new System.Drawing.Point(1530, 48);
             this.listView1.Name = "listView1";
+            this.listView1.Scrollable = false;
             this.listView1.Size = new System.Drawing.Size(267, 790);
             this.listView1.TabIndex = 6;
             this.listView1.UseCompatibleStateImageBehavior = false;
             this.listView1.View = System.Windows.Forms.View.Details;
+            this.listView1.Visible = false;
             // 
             // columnHeader1
             // 
@@ -202,12 +207,28 @@ namespace V_1._2
             this.flowLayoutPanel3.TabIndex = 12;
             this.flowLayoutPanel3.Paint += new System.Windows.Forms.PaintEventHandler(this.flowLayoutPanel3_Paint);
             // 
+            // flowLayoutPanel4
+            // 
+            this.flowLayoutPanel4.AutoScroll = true;
+            this.flowLayoutPanel4.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
+            this.flowLayoutPanel4.Location = new System.Drawing.Point(1206, 48);
+            this.flowLayoutPanel4.Name = "flowLayoutPanel4";
+            this.flowLayoutPanel4.Size = new System.Drawing.Size(300, 790);
+            this.flowLayoutPanel4.TabIndex = 13;
+            this.flowLayoutPanel4.WrapContents = false;
+            // 
+            // questionBindingSource
+            // 
+            this.questionBindingSource.DataSource = typeof(V_1._2.Question);
+            // 
             // KnowledgeTesting
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoScroll = true;
             this.AutoSize = true;
-            this.ClientSize = new System.Drawing.Size(1554, 1055);
+            this.ClientSize = new System.Drawing.Size(1626, 858);
+            this.Controls.Add(this.flowLayoutPanel4);
             this.Controls.Add(this.flowLayoutPanel3);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Controls.Add(this.listView1);
@@ -220,6 +241,7 @@ namespace V_1._2
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.flowLayoutPanel2.ResumeLayout(false);
             this.flowLayoutPanel3.ResumeLayout(false);
+            ((System.ComponentModel.ISupportInitialize)(this.questionBindingSource)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -240,5 +262,7 @@ namespace V_1._2
         private System.Windows.Forms.PictureBox pictureBox1;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel2;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel3;
+        private System.Windows.Forms.BindingSource questionBindingSource;
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel4;
     }
 }
