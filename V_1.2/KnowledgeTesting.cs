@@ -77,7 +77,17 @@ namespace V_1._2
             }
         }
 
-
+        private bool containsIndexInStudentState(int i)
+        {
+            foreach(var ans in test.Questions[currentQuestionIndex].StudentAnswer)
+            {
+                if (int.Parse(ans) == i)
+                {
+                    return true;
+                }
+            }
+            return false;
+        }
 
         private void DisplayQuestion(int index)
         {
@@ -102,8 +112,6 @@ namespace V_1._2
                 if (question.Type == "OneFromMulty")
                 {
 
-
-
                     RadioButton radioButton = new RadioButton();
                     radioButton.Text = answer.AnswerText;
                     radioButton.Tag = answer.IsRight; 
@@ -122,43 +130,79 @@ namespace V_1._2
                 {
                     CheckBox checkBox = new CheckBox();
                     checkBox.Text = answer.AnswerText;
-                    checkBox.Tag = answer.IsRight; 
-                    checkBox.Click += RadioButton_Click;
-                    flowLayoutPanel1.Controls.Add(checkBox);
+                    checkBox.Tag = answer.IsRight;
+                    checkBox.Click += CheckBox_Click; ;
+
+                    if (containsIndexInStudentState(i))
+                    {
+                        checkBox.Checked = true;
+                    }
+
+                    //if (question.StudentAnswer.Count > 0 && (i <= question.StudentAnswer.Count - 1))
+                    //{
+                    //    if (int.Parse(question.StudentAnswer[i]) == i) {
+                    //        checkBox.Checked = true;
+                    //    }
+                    //        //Установить если студент выбрал этот вариант
+                    //       // checkBox.Checked = (int.Parse(question.StudentAnswer[i]) == i);
+                    //}
+
+                        flowLayoutPanel1.Controls.Add(checkBox);
                 }
                 else if (question.Type == "DirectAnswer")
                 {
                     TextBox textBox = new TextBox();
-                    textBox.TextChanged += RadioButton_Click;
+                    textBox.TextChanged += TextBox_TextChanged; ;
                     flowLayoutPanel1.Controls.Add(textBox);
+                    if (question.StudentAnswer.Count > 0)
+                    {
+                        textBox.Text = question.StudentAnswer[0];
+                    }
+                   
                 }
                 i++;
             }
         }
 
+        private void TextBox_TextChanged(object sender, EventArgs e)
+        {
+            //todo Несколько полей для каждого ответа
+            int i = 0;
+            foreach (TextBox control in flowLayoutPanel1.Controls)
+            {
+                test.Questions[currentQuestionIndex].StudentAnswer.Clear();
+                test.Questions[currentQuestionIndex].StudentAnswer.Add(control.Text);
 
+                i++;
+            }
+        }
+
+        private void CheckBox_Click(object sender, EventArgs e)
+        {
+            int i = 0;
+            test.Questions[currentQuestionIndex].StudentAnswer.Clear();
+
+
+            foreach (CheckBox control in flowLayoutPanel1.Controls)
+            {
+                if (control.Checked)
+                {
+                    test.Questions[currentQuestionIndex].StudentAnswer.Add(i.ToString());
+                }
+                i++;
+            }
+        }
 
         private void RadioButton_Click(object sender, EventArgs e)
         {
 
-            //if 
             int i = 0;
-            foreach (var control in flowLayoutPanel1.Controls) {
-                if (control.GetType() == typeof(RadioButton))
-                {
-                    if (((RadioButton)control).Checked) 
-                    {
-                        test.Questions[currentQuestionIndex].StudentAnswer.Clear();
-                        test.Questions[currentQuestionIndex].StudentAnswer.Add(i.ToString());
-                    }
-                }
-                if (control.GetType() == typeof(CheckBox))
-                {
+            foreach (RadioButton control in flowLayoutPanel1.Controls) {
 
-                }
-                if (control.GetType() == typeof(TextBox))
+                if (control.Checked) 
                 {
-
+                    test.Questions[currentQuestionIndex].StudentAnswer.Clear();
+                    test.Questions[currentQuestionIndex].StudentAnswer.Add(i.ToString());
                 }
                 i++;
             }
