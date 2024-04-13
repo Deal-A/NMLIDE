@@ -482,6 +482,26 @@ namespace V_1._2
             }
             QuestionImage.Show();
         }
+
+        private void KnowledgeTesting_SizeChanged(object sender, EventArgs e)
+        {
+            if (this.Size.Width < 1000)
+            {
+                flowLayoutPanel2.Size = new Size(Size.Width - 100, 500);
+                flowLayoutPanel2.FlowDirection = FlowDirection.TopDown;
+                flowLayoutPanel3.FlowDirection = FlowDirection.TopDown;
+            }
+            else 
+            {
+                flowLayoutPanel2.FlowDirection = FlowDirection.LeftToRight;
+            }
+
+        }
+
+        private void flowLayoutPanel3_Paint(object sender, PaintEventArgs e)
+        {
+
+        }
     }
 
     public class Test

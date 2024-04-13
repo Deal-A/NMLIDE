@@ -42,14 +42,18 @@ namespace V_1._2
             this.richTextBox1 = new System.Windows.Forms.RichTextBox();
             this.imageList1 = new System.Windows.Forms.ImageList(this.components);
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
+            this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
+            this.flowLayoutPanel3 = new System.Windows.Forms.FlowLayoutPanel();
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
+            this.flowLayoutPanel2.SuspendLayout();
+            this.flowLayoutPanel3.SuspendLayout();
             this.SuspendLayout();
             // 
             // label1
             // 
             this.label1.AutoSize = true;
-            this.label1.Location = new System.Drawing.Point(400, 9);
+            this.label1.Location = new System.Drawing.Point(519, 9);
             this.label1.Name = "label1";
             this.label1.Size = new System.Drawing.Size(123, 17);
             this.label1.TabIndex = 1;
@@ -59,8 +63,9 @@ namespace V_1._2
             // flowLayoutPanel1
             // 
             this.flowLayoutPanel1.AutoScroll = true;
+            this.flowLayoutPanel1.BackColor = System.Drawing.SystemColors.Control;
             this.flowLayoutPanel1.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
-            this.flowLayoutPanel1.Location = new System.Drawing.Point(44, 377);
+            this.flowLayoutPanel1.Location = new System.Drawing.Point(3, 311);
             this.flowLayoutPanel1.Name = "flowLayoutPanel1";
             this.flowLayoutPanel1.Size = new System.Drawing.Size(1117, 397);
             this.flowLayoutPanel1.TabIndex = 5;
@@ -98,11 +103,11 @@ namespace V_1._2
             this.tableLayoutPanel1.Controls.Add(this.backButton1, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.nextButton1, 1, 0);
             this.tableLayoutPanel1.Controls.Add(this.finishButton1, 3, 0);
-            this.tableLayoutPanel1.Location = new System.Drawing.Point(44, 874);
+            this.tableLayoutPanel1.Location = new System.Drawing.Point(35, 792);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 1;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(1123, 39);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(1123, 49);
             this.tableLayoutPanel1.TabIndex = 8;
             // 
             // backButton1
@@ -112,7 +117,7 @@ namespace V_1._2
             | System.Windows.Forms.AnchorStyles.Right)));
             this.backButton1.Location = new System.Drawing.Point(3, 3);
             this.backButton1.Name = "backButton1";
-            this.backButton1.Size = new System.Drawing.Size(187, 33);
+            this.backButton1.Size = new System.Drawing.Size(187, 43);
             this.backButton1.TabIndex = 0;
             this.backButton1.Text = "Назад";
             this.backButton1.UseVisualStyleBackColor = true;
@@ -125,7 +130,7 @@ namespace V_1._2
             | System.Windows.Forms.AnchorStyles.Right)));
             this.nextButton1.Location = new System.Drawing.Point(196, 3);
             this.nextButton1.Name = "nextButton1";
-            this.nextButton1.Size = new System.Drawing.Size(187, 33);
+            this.nextButton1.Size = new System.Drawing.Size(187, 43);
             this.nextButton1.TabIndex = 0;
             this.nextButton1.Text = "Далее";
             this.nextButton1.UseVisualStyleBackColor = true;
@@ -138,7 +143,7 @@ namespace V_1._2
             | System.Windows.Forms.AnchorStyles.Right)));
             this.finishButton1.Location = new System.Drawing.Point(932, 3);
             this.finishButton1.Name = "finishButton1";
-            this.finishButton1.Size = new System.Drawing.Size(188, 33);
+            this.finishButton1.Size = new System.Drawing.Size(188, 43);
             this.finishButton1.TabIndex = 0;
             this.finishButton1.Text = "Завершить";
             this.finishButton1.UseVisualStyleBackColor = true;
@@ -146,10 +151,13 @@ namespace V_1._2
             // 
             // richTextBox1
             // 
+            this.richTextBox1.BackColor = System.Drawing.SystemColors.Window;
             this.richTextBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.richTextBox1.Cursor = System.Windows.Forms.Cursors.IBeam;
             this.richTextBox1.Font = new System.Drawing.Font("Verdana", 10.2F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.richTextBox1.Location = new System.Drawing.Point(44, 69);
+            this.richTextBox1.Location = new System.Drawing.Point(3, 3);
             this.richTextBox1.Name = "richTextBox1";
+            this.richTextBox1.ReadOnly = true;
             this.richTextBox1.Size = new System.Drawing.Size(652, 292);
             this.richTextBox1.TabIndex = 9;
             this.richTextBox1.Text = "";
@@ -162,7 +170,8 @@ namespace V_1._2
             // 
             // pictureBox1
             // 
-            this.pictureBox1.Location = new System.Drawing.Point(713, 69);
+            this.pictureBox1.BackColor = System.Drawing.SystemColors.Control;
+            this.pictureBox1.Location = new System.Drawing.Point(661, 3);
             this.pictureBox1.Name = "pictureBox1";
             this.pictureBox1.Size = new System.Drawing.Size(448, 292);
             this.pictureBox1.SizeMode = System.Windows.Forms.PictureBoxSizeMode.Zoom;
@@ -170,22 +179,47 @@ namespace V_1._2
             this.pictureBox1.TabStop = false;
             this.pictureBox1.Click += new System.EventHandler(this.pictureBox1_Click);
             // 
+            // flowLayoutPanel2
+            // 
+            this.flowLayoutPanel2.BackColor = System.Drawing.SystemColors.Control;
+            this.flowLayoutPanel2.Controls.Add(this.richTextBox1);
+            this.flowLayoutPanel2.Controls.Add(this.pictureBox1);
+            this.flowLayoutPanel2.Location = new System.Drawing.Point(3, 3);
+            this.flowLayoutPanel2.Name = "flowLayoutPanel2";
+            this.flowLayoutPanel2.Size = new System.Drawing.Size(1120, 302);
+            this.flowLayoutPanel2.TabIndex = 11;
+            // 
+            // flowLayoutPanel3
+            // 
+            this.flowLayoutPanel3.AutoScroll = true;
+            this.flowLayoutPanel3.BackColor = System.Drawing.SystemColors.Control;
+            this.flowLayoutPanel3.Controls.Add(this.flowLayoutPanel2);
+            this.flowLayoutPanel3.Controls.Add(this.flowLayoutPanel1);
+            this.flowLayoutPanel3.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
+            this.flowLayoutPanel3.Location = new System.Drawing.Point(35, 51);
+            this.flowLayoutPanel3.Name = "flowLayoutPanel3";
+            this.flowLayoutPanel3.Size = new System.Drawing.Size(1132, 725);
+            this.flowLayoutPanel3.TabIndex = 12;
+            this.flowLayoutPanel3.Paint += new System.Windows.Forms.PaintEventHandler(this.flowLayoutPanel3_Paint);
+            // 
             // KnowledgeTesting
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
+            this.AutoSize = true;
             this.ClientSize = new System.Drawing.Size(1554, 1055);
-            this.Controls.Add(this.pictureBox1);
-            this.Controls.Add(this.richTextBox1);
+            this.Controls.Add(this.flowLayoutPanel3);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Controls.Add(this.listView1);
-            this.Controls.Add(this.flowLayoutPanel1);
             this.Controls.Add(this.label1);
             this.Name = "KnowledgeTesting";
             this.Text = "KnowledgeTesting";
             this.Load += new System.EventHandler(this.KnowledgeTesting_Load);
+            this.SizeChanged += new System.EventHandler(this.KnowledgeTesting_SizeChanged);
             this.tableLayoutPanel1.ResumeLayout(false);
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
+            this.flowLayoutPanel2.ResumeLayout(false);
+            this.flowLayoutPanel3.ResumeLayout(false);
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -204,5 +238,7 @@ namespace V_1._2
         private System.Windows.Forms.RichTextBox richTextBox1;
         private System.Windows.Forms.ImageList imageList1;
         private System.Windows.Forms.PictureBox pictureBox1;
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel2;
+        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel3;
     }
 }
