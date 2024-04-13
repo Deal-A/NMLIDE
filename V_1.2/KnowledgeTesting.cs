@@ -98,10 +98,13 @@ namespace V_1._2
 
             richTextBox1.Clear();
 
-
-            //richTextBox1.Lines.
+            QuestionImage?.Dispose();
+            QuestionImage = null;
 
             richTextBox1.AppendText(question.QuestionText);
+
+            _addImage(question.PictureBase64);
+
 
             var answersArr = question.Answers[0];
 
@@ -162,6 +165,28 @@ namespace V_1._2
                 }
                 i++;
             }
+        }
+
+        private void _addImage(string pictureBase64)
+        {
+            byte[] imageBytes = Convert.FromBase64String(pictureBase64);
+
+            if (0 == imageBytes.Length) 
+            {
+                pictureBox1.Image = null;
+                return;
+            }
+
+
+            using (MemoryStream ms = new MemoryStream(imageBytes))
+            {
+                // Загружаем изображение из потока памяти
+                Image image = Image.FromStream(ms);
+
+                // Устанавливаем изображение в PictureBox
+                pictureBox1.Image = image;
+            }
+
         }
 
         private void TextBox_TextChanged(object sender, EventArgs e)
@@ -410,7 +435,7 @@ namespace V_1._2
 
         private void KnowledgeTesting_Load(object sender, EventArgs e)
         {
-            
+
         }
 
         protected override void OnFormClosing(FormClosingEventArgs e)
@@ -444,12 +469,18 @@ namespace V_1._2
             
         }
 
-        private int _qetQuestionImage() {
-            return 0;
-        }
         private void pictureBox1_Click(object sender, EventArgs e)
         {
-            QuestionImage = new QuestionImage(_qetQuestionImage());
+            if (string.IsNullOrEmpty(questions[currentQuestionIndex].PictureBase64))
+            {
+                return;
+            }
+            if (object.Equals(QuestionImage, null)) 
+            {
+                QuestionImage = new QuestionImage(Convert.FromBase64String(questions[currentQuestionIndex].PictureBase64));
+                
+            }
+            QuestionImage.Show();
         }
     }
 

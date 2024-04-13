@@ -106,6 +106,7 @@ namespace V_1._2
             this.Controls.Add(this.tableLayoutPanel1);
             this.Name = "ModeChoosingStartForm";
             this.Text = "ModeChoosingStartForm";
+            this.Load += new System.EventHandler(this.ModeChoosingStartForm_Load);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.ResumeLayout(false);
 

@@ -57,5 +57,10 @@ namespace V_1._2
             this.CurrentMode = Mode.Free;
             this.click();
         }
+
+        private void ModeChoosingStartForm_Load(object sender, EventArgs e)
+        {
+
+        }
     }
 }
