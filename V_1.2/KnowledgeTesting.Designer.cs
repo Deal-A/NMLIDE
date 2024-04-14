@@ -36,6 +36,7 @@ namespace V_1._2
             this.columnHeader1 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.columnHeader2 = ((System.Windows.Forms.ColumnHeader)(new System.Windows.Forms.ColumnHeader()));
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.clearButton = new System.Windows.Forms.Button();
             this.backButton1 = new System.Windows.Forms.Button();
             this.nextButton1 = new System.Windows.Forms.Button();
             this.finishButton1 = new System.Windows.Forms.Button();
@@ -44,7 +45,7 @@ namespace V_1._2
             this.pictureBox1 = new System.Windows.Forms.PictureBox();
             this.flowLayoutPanel2 = new System.Windows.Forms.FlowLayoutPanel();
             this.flowLayoutPanel3 = new System.Windows.Forms.FlowLayoutPanel();
-            this.flowLayoutPanel4 = new System.Windows.Forms.FlowLayoutPanel();
+            this.questionPreviewFlowLayoutPanel = new System.Windows.Forms.FlowLayoutPanel();
             this.questionBindingSource = new System.Windows.Forms.BindingSource(this.components);
             this.tableLayoutPanel1.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).BeginInit();
@@ -100,20 +101,36 @@ namespace V_1._2
             // 
             // tableLayoutPanel1
             // 
-            this.tableLayoutPanel1.ColumnCount = 4;
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 17.2003F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 17.2003F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 48.39911F));
-            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 17.2003F));
+            this.tableLayoutPanel1.ColumnCount = 6;
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 17.2F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 17.2F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 15.6F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 17.2F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 15.6F));
+            this.tableLayoutPanel1.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 17.2F));
+            this.tableLayoutPanel1.Controls.Add(this.clearButton, 3, 0);
             this.tableLayoutPanel1.Controls.Add(this.backButton1, 0, 0);
             this.tableLayoutPanel1.Controls.Add(this.nextButton1, 1, 0);
-            this.tableLayoutPanel1.Controls.Add(this.finishButton1, 3, 0);
+            this.tableLayoutPanel1.Controls.Add(this.finishButton1, 5, 0);
             this.tableLayoutPanel1.Location = new System.Drawing.Point(35, 792);
             this.tableLayoutPanel1.Name = "tableLayoutPanel1";
             this.tableLayoutPanel1.RowCount = 1;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(1123, 49);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(1132, 49);
             this.tableLayoutPanel1.TabIndex = 8;
+            // 
+            // clearButton
+            // 
+            this.clearButton.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
+            | System.Windows.Forms.AnchorStyles.Left) 
+            | System.Windows.Forms.AnchorStyles.Right)));
+            this.clearButton.Location = new System.Drawing.Point(567, 3);
+            this.clearButton.Name = "clearButton";
+            this.clearButton.Size = new System.Drawing.Size(188, 43);
+            this.clearButton.TabIndex = 14;
+            this.clearButton.Text = "Очистить";
+            this.clearButton.UseVisualStyleBackColor = true;
+            this.clearButton.Click += new System.EventHandler(this.clearButton_Click);
             // 
             // backButton1
             // 
@@ -122,7 +139,7 @@ namespace V_1._2
             | System.Windows.Forms.AnchorStyles.Right)));
             this.backButton1.Location = new System.Drawing.Point(3, 3);
             this.backButton1.Name = "backButton1";
-            this.backButton1.Size = new System.Drawing.Size(187, 43);
+            this.backButton1.Size = new System.Drawing.Size(188, 43);
             this.backButton1.TabIndex = 0;
             this.backButton1.Text = "Назад";
             this.backButton1.UseVisualStyleBackColor = true;
@@ -133,9 +150,9 @@ namespace V_1._2
             this.nextButton1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.nextButton1.Location = new System.Drawing.Point(196, 3);
+            this.nextButton1.Location = new System.Drawing.Point(197, 3);
             this.nextButton1.Name = "nextButton1";
-            this.nextButton1.Size = new System.Drawing.Size(187, 43);
+            this.nextButton1.Size = new System.Drawing.Size(188, 43);
             this.nextButton1.TabIndex = 0;
             this.nextButton1.Text = "Далее";
             this.nextButton1.UseVisualStyleBackColor = true;
@@ -146,9 +163,9 @@ namespace V_1._2
             this.finishButton1.Anchor = ((System.Windows.Forms.AnchorStyles)((((System.Windows.Forms.AnchorStyles.Top | System.Windows.Forms.AnchorStyles.Bottom) 
             | System.Windows.Forms.AnchorStyles.Left) 
             | System.Windows.Forms.AnchorStyles.Right)));
-            this.finishButton1.Location = new System.Drawing.Point(932, 3);
+            this.finishButton1.Location = new System.Drawing.Point(937, 3);
             this.finishButton1.Name = "finishButton1";
-            this.finishButton1.Size = new System.Drawing.Size(188, 43);
+            this.finishButton1.Size = new System.Drawing.Size(192, 43);
             this.finishButton1.TabIndex = 0;
             this.finishButton1.Text = "Завершить";
             this.finishButton1.UseVisualStyleBackColor = true;
@@ -207,15 +224,15 @@ namespace V_1._2
             this.flowLayoutPanel3.TabIndex = 12;
             this.flowLayoutPanel3.Paint += new System.Windows.Forms.PaintEventHandler(this.flowLayoutPanel3_Paint);
             // 
-            // flowLayoutPanel4
+            // questionPreviewFlowLayoutPanel
             // 
-            this.flowLayoutPanel4.AutoScroll = true;
-            this.flowLayoutPanel4.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
-            this.flowLayoutPanel4.Location = new System.Drawing.Point(1206, 48);
-            this.flowLayoutPanel4.Name = "flowLayoutPanel4";
-            this.flowLayoutPanel4.Size = new System.Drawing.Size(300, 790);
-            this.flowLayoutPanel4.TabIndex = 13;
-            this.flowLayoutPanel4.WrapContents = false;
+            this.questionPreviewFlowLayoutPanel.AutoScroll = true;
+            this.questionPreviewFlowLayoutPanel.FlowDirection = System.Windows.Forms.FlowDirection.TopDown;
+            this.questionPreviewFlowLayoutPanel.Location = new System.Drawing.Point(1206, 48);
+            this.questionPreviewFlowLayoutPanel.Name = "questionPreviewFlowLayoutPanel";
+            this.questionPreviewFlowLayoutPanel.Size = new System.Drawing.Size(300, 790);
+            this.questionPreviewFlowLayoutPanel.TabIndex = 13;
+            this.questionPreviewFlowLayoutPanel.WrapContents = false;
             // 
             // questionBindingSource
             // 
@@ -227,8 +244,8 @@ namespace V_1._2
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
             this.AutoSize = true;
-            this.ClientSize = new System.Drawing.Size(1626, 858);
-            this.Controls.Add(this.flowLayoutPanel4);
+            this.ClientSize = new System.Drawing.Size(1626, 879);
+            this.Controls.Add(this.questionPreviewFlowLayoutPanel);
             this.Controls.Add(this.flowLayoutPanel3);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Controls.Add(this.listView1);
@@ -263,6 +280,7 @@ namespace V_1._2
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel2;
         private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel3;
         private System.Windows.Forms.BindingSource questionBindingSource;
-        private System.Windows.Forms.FlowLayoutPanel flowLayoutPanel4;
+        private System.Windows.Forms.FlowLayoutPanel questionPreviewFlowLayoutPanel;
+        private System.Windows.Forms.Button clearButton;
     }
 }

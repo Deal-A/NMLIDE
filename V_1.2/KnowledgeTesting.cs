@@ -21,6 +21,10 @@ namespace V_1._2
 
         private List<RichTextBox> _questionPreviewRTBList;
 
+        private List<object> _currentAnswerControlSet;
+        
+        private Font _baseRTBFont;
+
         private Label questionTextLabel;
         private ListBox answersListBox;
         private TextBox directAnswerTextBox;
@@ -48,6 +52,17 @@ namespace V_1._2
             _questionPreviewRTBList = new List<RichTextBox>();
             test = JsonConvert.DeserializeObject<Test>(File.ReadAllText("D:\\_1Study\\ВКР\\P\\V_1\\V_1.2\\Sources\\KnowledgeTestData.json"));
 
+
+            _currentAnswerControlSet = new List<object>();
+
+
+            _baseRTBFont = new Font(
+                    new FontFamily("Verdana"),
+                    12,
+                    FontStyle.Bold,
+                    GraphicsUnit.Pixel
+                    );
+
             ///var a = tryJson.Questions[0].Answers.ToArray();
 
             //test = JsonConvert.DeserializeObject<Test>(File.ReadAllText("D:\\_1Study\\ВКР\\P\\V_1\\V_1.2\\Sources\\TryJson.json"));
@@ -57,8 +72,6 @@ namespace V_1._2
 
         private void LoadQuestions()
         {
-
-            
             foreach (Question question in test.Questions)
             {
                 listView1.Items.Add(new ListViewItem(new string[] { question.Number.ToString(), question.QuestionText }));
@@ -94,16 +107,13 @@ namespace V_1._2
                 richTextBox1.ReadOnly = true;
                 richTextBox1.BorderStyle = BorderStyle.None;
 
-                richTextBox1.Font = new Font(
-                    new FontFamily("Verdana"),
-                    12,
-                    FontStyle.Bold,
-                    GraphicsUnit.Pixel
-                    );
+                richTextBox1.Font = _baseRTBFont;
 
                 richTextBox1.BackColor = Color.FromArgb(255,255,255,255);
 
-                flowLayoutPanel4.Controls.Add(richTextBox1);
+                richTextBox1.MouseWheel += richTextControl_MouseWheel;
+
+                questionPreviewFlowLayoutPanel.Controls.Add(richTextBox1);
 
                 _questionPreviewRTBList.Add(richTextBox1);
 
@@ -178,6 +188,7 @@ namespace V_1._2
 
             var answersArr = question.Answers[0];
 
+            _currentAnswerControlSet.Clear();
 
             int i = 0;
             foreach (Answer answer in question.Answers)
@@ -198,6 +209,7 @@ namespace V_1._2
                     }
 
                     flowLayoutPanel1.Controls.Add(radioButton);
+                    _currentAnswerControlSet.Add(radioButton);
                 }
                 else if (question.Type == "MultuFromMulty")
                 {
@@ -220,13 +232,17 @@ namespace V_1._2
                     //       // checkBox.Checked = (int.Parse(question.StudentAnswer[i]) == i);
                     //}
 
-                        flowLayoutPanel1.Controls.Add(checkBox);
+                    flowLayoutPanel1.Controls.Add(checkBox);
+                    _currentAnswerControlSet.Add(checkBox);
                 }
                 else if (question.Type == "DirectAnswer")
                 {
                     TextBox textBox = new TextBox();
-                    textBox.TextChanged += TextBox_TextChanged; ;
+                    textBox.TextChanged += TextBox_TextChanged;
+
                     flowLayoutPanel1.Controls.Add(textBox);
+                    _currentAnswerControlSet.Add(textBox);
+                    
                     if (question.StudentAnswer.Count > 0)
                     {
                         textBox.Text = question.StudentAnswer[0];
@@ -235,6 +251,33 @@ namespace V_1._2
                 }
                 i++;
             }
+        }
+
+        private void richTextControl_MouseWheel(object sender, MouseEventArgs e)
+        {
+            //if (flowLayoutPanel4.ClientRectangle.Contains(flowLayoutPanel4.PointToClient(((RichTextBox)sender).PointToScreen(e.Location))))
+            //{
+            //    int numberOfTextLinesToMove = e.Delta * SystemInformation.MouseWheelScrollLines / 120;
+            //    flowLayoutPanel4.AutoScrollPosition = new Point(flowLayoutPanel4.AutoScrollPosition.X, flowLayoutPanel4.AutoScrollPosition.Y - numberOfTextLinesToMove * 20);
+            //}
+
+
+
+            int delta = e.Delta;
+
+            int diff = 20;
+
+            if (delta > 0)
+            {
+                // Прокручиваем вверх
+                questionPreviewFlowLayoutPanel.VerticalScroll.Value = Math.Max(0, questionPreviewFlowLayoutPanel.VerticalScroll.Value - diff);
+            }
+            else
+            {
+                // Прокручиваем вниз
+                questionPreviewFlowLayoutPanel.VerticalScroll.Value = Math.Min(questionPreviewFlowLayoutPanel.VerticalScroll.Maximum, questionPreviewFlowLayoutPanel.VerticalScroll.Value + diff);
+            }
+
         }
 
         private void _addImage(string pictureBase64)
@@ -258,21 +301,43 @@ namespace V_1._2
             }
         }
 
+        private void _setAnswerdThisQuestion(int index) 
+        {
+
+        //    _baseRTBFont = new Font(
+        //new FontFamily("Verdana"),
+        //12,
+        //FontStyle.Bold,
+        //GraphicsUnit.Pixel
+        //);
+
+            _questionPreviewRTBList[index].Font = new Font(
+                _baseRTBFont.FontFamily,
+                _baseRTBFont.Size,
+                FontStyle.Regular,
+                GraphicsUnit.Pixel
+             );
+
+        }
+
+        private void _setNotAnswerdThisQuestion(int index)
+        {
+            _questionPreviewRTBList[index].Font = _baseRTBFont;
+        }
+
 
         private void _updatePreviewRTB() 
         {
             int i = 0;
             foreach(Question q in _questions) 
             {
-                if (q.StudentAnswer.Count!=0 ) 
+                _setNotAnswerdThisQuestion(i);
+
+                if (q.StudentAnswer.Count != 0)
                 {
-                    _questionPreviewRTBList[i].Font = new Font(
-                    new FontFamily("Verdana"),
-                    12,
-                    FontStyle.Regular,
-                    GraphicsUnit.Pixel
-                    );
+                    _setAnswerdThisQuestion(i);
                 }
+
                 i++;
             }
         }
@@ -282,9 +347,17 @@ namespace V_1._2
         {
             //todo Несколько полей для каждого ответа
             int i = 0;
+            test.Questions[currentQuestionIndex].StudentAnswer.Clear();
+
             foreach (TextBox control in flowLayoutPanel1.Controls)
             {
-                test.Questions[currentQuestionIndex].StudentAnswer.Clear();
+                //test.Questions[currentQuestionIndex].StudentAnswer.Clear();
+
+                if (control.Text.Equals("")) 
+                {
+                    continue;
+                }
+
                 test.Questions[currentQuestionIndex].StudentAnswer.Add(control.Text);
 
                 i++;
@@ -314,11 +387,13 @@ namespace V_1._2
         private void RadioButton_Click(object sender, EventArgs e)
         {
             int i = 0;
+            test.Questions[currentQuestionIndex].StudentAnswer.Clear();
+
             foreach (RadioButton control in flowLayoutPanel1.Controls) {
 
                 if (control.Checked) 
                 {
-                    test.Questions[currentQuestionIndex].StudentAnswer.Clear();
+                    //test.Questions[currentQuestionIndex].StudentAnswer.Clear();
                     test.Questions[currentQuestionIndex].StudentAnswer.Add(i.ToString());
                 }
                 i++;
@@ -404,7 +479,7 @@ namespace V_1._2
             }
         }
 
-
+        #region Подумать 
 
         //private void CreateControls()
         //{
@@ -510,7 +585,7 @@ namespace V_1._2
         //    //}
         //}
 
-
+        #endregion
         private void finishButton_Click(object sender, EventArgs e)
         {
             // Дополнительная логика для завершения тестирования
@@ -586,22 +661,61 @@ namespace V_1._2
 
         private void KnowledgeTesting_SizeChanged(object sender, EventArgs e)
         {
-            if (this.Size.Width < 1000)
-            {
-                flowLayoutPanel2.Size = new Size(Size.Width - 100, 500);
-                flowLayoutPanel2.FlowDirection = FlowDirection.TopDown;
-                flowLayoutPanel3.FlowDirection = FlowDirection.TopDown;
-            }
-            else 
-            {
-                flowLayoutPanel2.FlowDirection = FlowDirection.LeftToRight;
-            }
+            //if (this.Size.Width < 1000)
+            //{
+            //    flowLayoutPanel2.Size = new Size(Size.Width - 100, 500);
+            //    flowLayoutPanel2.FlowDirection = FlowDirection.TopDown;
+            //    flowLayoutPanel3.FlowDirection = FlowDirection.TopDown;
+            //}
+            //else 
+            //{
+            //    flowLayoutPanel2.FlowDirection = FlowDirection.LeftToRight;
+            //}
 
         }
 
         private void flowLayoutPanel3_Paint(object sender, PaintEventArgs e)
         {
 
+        }
+
+        private void clearButton_Click(object sender, EventArgs e)
+        {
+            if (0 == _currentAnswerControlSet.Count)
+            {
+                return;
+            }
+
+            var firstControl = _currentAnswerControlSet[0];
+
+            if ((typeof(RadioButton) == firstControl.GetType()))
+            {
+                foreach (var curControl in _currentAnswerControlSet) 
+                {
+                    ((RadioButton)curControl).Checked = false;
+                }
+            }
+
+            if ((typeof(CheckBox) == firstControl.GetType())) 
+            {
+                foreach (var curControl in _currentAnswerControlSet)
+                {
+                    ((CheckBox)curControl).Checked = false;
+                }
+            }
+
+            if ((typeof(TextBox) == firstControl.GetType())) 
+            {
+                ((TextBox)_currentAnswerControlSet[0]).Text = "";
+            }
+
+            _clearCurrentStudentAnswer();
+            _updatePreviewRTB();
+        }
+
+        private void _clearCurrentStudentAnswer()
+        {
+            test.Questions[currentQuestionIndex].StudentAnswer.Clear();
         }
     }
 
