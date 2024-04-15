@@ -22,7 +22,7 @@ namespace V_1._2
 
         private void Form1_Load(object sender, EventArgs e)
         {
-            _addMdiWidnows();
+            _addWidnows();
             ModeChoosingStartForm = new ModeChoosingStartForm();
 
 
@@ -46,7 +46,7 @@ namespace V_1._2
             this.Show();
         }
 
-        private void _addMdiWidnows()
+        private void _addWidnows()
         {
             KnowledgeTesting = new KnowledgeTesting();
          //   KnowledgeTesting.MdiParent = this;

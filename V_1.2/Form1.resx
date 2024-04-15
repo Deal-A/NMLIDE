@@ -118,8 +118,8 @@
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
   <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
-    <value>859, 511</value>
+  <data name="обучениеНачатьToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>313, 26</value>
   </data>
   <data name="&gt;&gt;обучениеНачатьToolStripMenuItem.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -356,8 +356,8 @@
   <data name="&gt;&gt;выходToolStripMenuItem.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="обучениеНачатьToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>313, 26</value>
+  <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
+    <value>859, 511</value>
   </data>
   <data name="&gt;&gt;проверкаНаТестовойВыборкеToolStripMenuItem.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>

@@ -244,14 +244,15 @@ namespace V_1._2
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
             this.AutoSize = true;
-            this.ClientSize = new System.Drawing.Size(1626, 879);
+            this.ClientSize = new System.Drawing.Size(1626, 900);
             this.Controls.Add(this.questionPreviewFlowLayoutPanel);
             this.Controls.Add(this.flowLayoutPanel3);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Controls.Add(this.listView1);
             this.Controls.Add(this.label1);
             this.Name = "KnowledgeTesting";
-            this.Text = "KnowledgeTesting";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Проверка знаний";
             this.Load += new System.EventHandler(this.KnowledgeTesting_Load);
             this.SizeChanged += new System.EventHandler(this.KnowledgeTesting_SizeChanged);
             this.tableLayoutPanel1.ResumeLayout(false);

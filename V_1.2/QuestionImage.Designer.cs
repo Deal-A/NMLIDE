@@ -1,7 +1,7 @@
 ﻿
 namespace V_1._2
 {
-    partial class QuestionImage
+    partial class QuestionImageForm
     {
         /// <summary>
         /// Required designer variable.
@@ -54,15 +54,16 @@ namespace V_1._2
             this.panel1.Size = new System.Drawing.Size(1251, 934);
             this.panel1.TabIndex = 1;
             // 
-            // QuestionImage
+            // QuestionImageForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
             this.AutoScroll = true;
             this.ClientSize = new System.Drawing.Size(1251, 934);
             this.Controls.Add(this.panel1);
-            this.Name = "QuestionImage";
-            this.Text = "QuestionImage";
+            this.Name = "QuestionImageForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "Изображение";
             ((System.ComponentModel.ISupportInitialize)(this.pictureBox1)).EndInit();
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();

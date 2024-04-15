@@ -117,27 +117,22 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="menuStrip1.Size" type="System.Drawing.Size, System.Drawing">
-    <value>971, 28</value>
-  </data>
-  <data name="открытьToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>166, 26</value>
-  </data>
-  <data name="сохранитьToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>166, 26</value>
-  </data>
-  <data name="выходToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>166, 26</value>
-  </data>
-  <data name="$this.ClientSize" type="System.Drawing.Size, System.Drawing">
-    <value>971, 605</value>
-  </data>
-  <assembly alias="System.Windows.Forms" name="System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089" />
-  <data name="$this.StartPosition" type="System.Windows.Forms.FormStartPosition, System.Windows.Forms">
-    <value>CenterScreen</value>
-  </data>
-  <data name="$this.Text" xml:space="preserve">
-    <value>УИПНМ</value>
+  <data name="richTextBox1.Text" xml:space="preserve">
+    <value>1. Что такое многослойный персептрон?
+Вид сети ...
+Вид функции
+Вид параметра ...
+
+2. Состав сверточной сети
+Сверточный слой
+Многослойный персептрон
+Слой максимального объединения 
+Рекуррентный слой
+
+3. На графике изображена функция ____ сети. Структура сети приведена ниже. Какой будет выход сети на Y1 при x1 = 3, x2 = 7.8, x3 = 10.3. Ответ приводится через точку за запятой. Пример: радиально-базисной; 10.7"
+
+Радиально-базисной
+7,78
+</value>
   </data>
 </root>

@@ -33,7 +33,9 @@ namespace V_1._2
         private Button finishButton;
         private ListView questionListView;
 
-        private QuestionImage QuestionImage;
+        private QuestionImageForm QuestionImageForm;
+
+        private KnowledgeTestProtocolForm KnowledgeTestProtocolForm;
 
 
 
@@ -50,7 +52,7 @@ namespace V_1._2
         private void _initFields()
         {
             _questionPreviewRTBList = new List<RichTextBox>();
-            test = JsonConvert.DeserializeObject<Test>(File.ReadAllText("D:\\_1Study\\ВКР\\P\\V_1\\V_1.2\\Sources\\KnowledgeTestData.json"));
+            test = JsonConvert.DeserializeObject<Test>(File.ReadAllText("D:\\_1Study\\ВКР\\P\\V_1\\V_1.2\\Sources\\KnowledgeTestData_3q.json"));
 
 
             _currentAnswerControlSet = new List<object>();
@@ -68,6 +70,10 @@ namespace V_1._2
             //test = JsonConvert.DeserializeObject<Test>(File.ReadAllText("D:\\_1Study\\ВКР\\P\\V_1\\V_1.2\\Sources\\TryJson.json"));
             //test = System.Text.Json.JsonSerializer.Deserialize<Test>(File.ReadAllText("D:\\_1Study\\ВКР\\P\\V_1\\V_1.2\\Sources\\KnowledgeTestData.json"));
             _questions = test.Questions;
+
+            KnowledgeTestProtocolForm = new KnowledgeTestProtocolForm();
+            KnowledgeTestProtocolForm.Hide();
+
         }
 
         private void LoadQuestions()
@@ -178,8 +184,8 @@ namespace V_1._2
 
             richTextBox1.Clear();
 
-            QuestionImage?.Dispose();
-            QuestionImage = null;
+            QuestionImageForm?.Dispose();
+            QuestionImageForm = null;
 
             richTextBox1.AppendText(question.QuestionText);
 
@@ -618,6 +624,8 @@ namespace V_1._2
         {
             e.Cancel = true;
             Hide();
+            QuestionImageForm?.Hide();
+            KnowledgeTestProtocolForm?.Hide();
         }
 
         private void backButton1_Click(object sender, EventArgs e)
@@ -642,7 +650,7 @@ namespace V_1._2
 
         private void finishButton1_Click(object sender, EventArgs e)
         {
-            
+            KnowledgeTestProtocolForm.Show();
         }
 
         private void pictureBox1_Click(object sender, EventArgs e)
@@ -651,12 +659,12 @@ namespace V_1._2
             {
                 return;
             }
-            if (object.Equals(QuestionImage, null)) 
+            if (object.Equals(QuestionImageForm, null)) 
             {
-                QuestionImage = new QuestionImage(Convert.FromBase64String(_questions[currentQuestionIndex].PictureBase64));
+                QuestionImageForm = new QuestionImageForm(Convert.FromBase64String(_questions[currentQuestionIndex].PictureBase64));
                 
             }
-            QuestionImage.Show();
+            QuestionImageForm.Show();
         }
 
         private void KnowledgeTesting_SizeChanged(object sender, EventArgs e)

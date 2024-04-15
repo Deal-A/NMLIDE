@@ -105,7 +105,8 @@ namespace V_1._2
             this.ClientSize = new System.Drawing.Size(800, 450);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Name = "ModeChoosingStartForm";
-            this.Text = "ModeChoosingStartForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
+            this.Text = "УИПНМ выбор";
             this.Load += new System.EventHandler(this.ModeChoosingStartForm_Load);
             this.tableLayoutPanel1.ResumeLayout(false);
             this.ResumeLayout(false);

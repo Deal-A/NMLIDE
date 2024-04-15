@@ -109,6 +109,12 @@
     <Compile Include="KnowledgeTesting.Designer.cs">
       <DependentUpon>KnowledgeTesting.cs</DependentUpon>
     </Compile>
+    <Compile Include="KnowledgeTestProtocol.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="KnowledgeTestProtocol.Designer.cs">
+      <DependentUpon>KnowledgeTestProtocol.cs</DependentUpon>
+    </Compile>
     <Compile Include="ModeChoosingStartForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -134,6 +140,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="KnowledgeTesting.resx">
       <DependentUpon>KnowledgeTesting.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="KnowledgeTestProtocol.resx">
+      <DependentUpon>KnowledgeTestProtocol.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ModeChoosingStartForm.resx">
       <DependentUpon>ModeChoosingStartForm.cs</DependentUpon>

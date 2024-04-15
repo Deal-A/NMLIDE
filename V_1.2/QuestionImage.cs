@@ -11,14 +11,14 @@ using System.Windows.Forms;
 
 namespace V_1._2
 {
-    public partial class QuestionImage : Form
+    public partial class QuestionImageForm : Form
     {
-        public QuestionImage()
+        public QuestionImageForm()
         {
             InitializeComponent();
         }
 
-        public QuestionImage(byte [] imageByteArr)
+        public QuestionImageForm(byte [] imageByteArr)
         {
 
             InitializeComponent();
