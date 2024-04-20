@@ -37,6 +37,10 @@ namespace V_1._2
 
         private KnowledgeTestProtocolForm KnowledgeTestProtocolForm;
 
+        public delegate void TestFinishedDelegate();
+
+        public event TestFinishedDelegate TestFinished;
+
 
 
         private int totalScore = 0;
@@ -73,6 +77,18 @@ namespace V_1._2
 
             KnowledgeTestProtocolForm = new KnowledgeTestProtocolForm();
             KnowledgeTestProtocolForm.Hide();
+
+            KnowledgeTestProtocolForm.NextDelegateClick += FinishTest;
+
+        }
+
+        private void FinishTest()
+        {
+            Hide();
+            KnowledgeTestProtocolForm.Hide();
+            QuestionImageForm?.Hide();
+
+            TestFinished();
 
         }
 

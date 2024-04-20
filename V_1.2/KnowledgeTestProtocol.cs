@@ -16,6 +16,10 @@ namespace V_1._2
         private Color _ignorCorrectColour = Color.FromArgb(255, 177, 4, 255);
         private Color _wrongColour = Color.FromArgb(201, 3, 0);
 
+        public delegate void NextDelegate();
+
+        public event NextDelegate NextDelegateClick;
+
         public KnowledgeTestProtocolForm()
         {
             InitializeComponent();
@@ -98,6 +102,11 @@ namespace V_1._2
         private void KnowledgeTestProtocolForm_Load(object sender, EventArgs e)
         {
 
+        }
+
+        private void nextButton_Click(object sender, EventArgs e)
+        {
+            this.NextDelegateClick();
         }
     }
 }

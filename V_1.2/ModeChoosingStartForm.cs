@@ -19,7 +19,9 @@ namespace V_1._2
 
         public delegate void OpenDelegate();
 
-        public event OpenDelegate click;
+        public event OpenDelegate LearnModeClick;
+        public event OpenDelegate ExperimentModeClick;
+        public event OpenDelegate ModelingModeClick;
         public ModeChoosingStartForm()
         {
             InitializeComponent();
@@ -43,19 +45,19 @@ namespace V_1._2
         private void button1_Click(object sender, EventArgs e)
         {
             this.CurrentMode = Mode.Learning;
-            this.click();
+            this.LearnModeClick();
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
             this.CurrentMode = Mode.Experiment;
-            this.click();
+            this.ExperimentModeClick();
         }
 
         private void button3_Click(object sender, EventArgs e)
         {
             this.CurrentMode = Mode.Free;
-            this.click();
+            this.ModelingModeClick();
         }
 
         private void ModeChoosingStartForm_Load(object sender, EventArgs e)

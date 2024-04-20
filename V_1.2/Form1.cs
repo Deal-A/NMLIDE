@@ -14,6 +14,7 @@ namespace V_1._2
     {
         private ModeChoosingStartForm ModeChoosingStartForm;
         private KnowledgeTesting KnowledgeTesting;
+        private TrainingSampleForm TrainingSampleForm;
 
         public MainForm()
         {
@@ -26,31 +27,63 @@ namespace V_1._2
             ModeChoosingStartForm = new ModeChoosingStartForm();
 
 
-            this.ModeChoosingStartForm.Show();
+            ModeChoosingStartForm.Show();
 
-            this.ModeChoosingStartForm.click += OpenMainForm;
+            ModeChoosingStartForm.LearnModeClick += LearnModeOpenMainForm;
+            ModeChoosingStartForm.ExperimentModeClick += ExperimentModeOpenMainForm;
+            ModeChoosingStartForm.ModelingModeClick += ModelingModeOpenMainForm;
 
-            this.Shown += MainForm_Shown;
+            Shown += MainForm_Shown;
+
+            KnowledgeTesting.TestFinished += ChooseTrainDataStage;
+
+        }
+
+        private void ChooseTrainDataStage()
+        {
+            MessageBox.Show("Тест пройден! Подготовка данных.");
+        }
+
+        private void ModelingModeOpenMainForm()
+        {
+            ModeChoosingStartForm.Hide();
+            Show();
+            stageControlPanel.Visible = false;
+
+        }
+
+        private void ExperimentModeOpenMainForm()
+        {
+            ModeChoosingStartForm.Hide();
+            Show();
+            stageControlPanel.Visible = false;
+        }
+
+
+        private void LearnModeOpenMainForm()
+        {
+            stageControlPanel.Visible = true;
+            ModeChoosingStartForm.Hide();
+            Show();
         }
 
 
         private void MainForm_Shown(object sender, EventArgs e)
         {
-            this.Hide();
+            Hide();
         }
 
-
-        private void OpenMainForm()
-        {
-            this.ModeChoosingStartForm.Hide();
-            this.Show();
-        }
 
         private void _addWidnows()
         {
             KnowledgeTesting = new KnowledgeTesting();
          //   KnowledgeTesting.MdiParent = this;
             KnowledgeTesting.Hide();
+
+            TrainingSampleForm = new TrainingSampleForm();
+
+            TrainingSampleForm.Hide();
+
         }
         private void simpleButton1_Click(object sender, EventArgs e)
         {
@@ -64,12 +97,12 @@ namespace V_1._2
 
         private void загрузитьВыборкуToolStripMenuItem_Click(object sender, EventArgs e)
         {
-
+            TrainingSampleForm.Show();
         }
 
         private void помощьToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            KnowledgeTesting.Show();
+            KnowledgeTesting?.Show();
         }
 
         private void toolStripMenuItem1_Click(object sender, EventArgs e)
@@ -88,6 +121,22 @@ namespace V_1._2
         }
 
         private void toolStripMenuItem3_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void promptButton_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void toolStripMenuItem4_Click_1(object sender, EventArgs e)
+        {
+            Hide();
+            ModeChoosingStartForm.Show();
+        }
+
+        private void toolStripMenuItem5_Click(object sender, EventArgs e)
         {
 
         }
