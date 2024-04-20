@@ -46,7 +46,6 @@ namespace V_1._2
             this.проверкаНаТестовойВыборкеToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.протоколToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.помощьToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
             this.помощьToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.stageControlPanel = new System.Windows.Forms.Panel();
             this.backButton = new System.Windows.Forms.Button();
@@ -57,6 +56,7 @@ namespace V_1._2
             this.toolStripMenuItem5 = new System.Windows.Forms.ToolStripMenuItem();
             this.листингНаPythonToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.toolStripMenuItem6 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.stageControlPanel.SuspendLayout();
             this.SuspendLayout();
@@ -171,11 +171,6 @@ namespace V_1._2
             resources.ApplyResources(this.помощьToolStripMenuItem, "помощьToolStripMenuItem");
             this.помощьToolStripMenuItem.Click += new System.EventHandler(this.помощьToolStripMenuItem_Click);
             // 
-            // toolStripMenuItem2
-            // 
-            this.toolStripMenuItem2.Name = "toolStripMenuItem2";
-            resources.ApplyResources(this.toolStripMenuItem2, "toolStripMenuItem2");
-            // 
             // помощьToolStripMenuItem1
             // 
             this.помощьToolStripMenuItem1.Name = "помощьToolStripMenuItem1";
@@ -236,6 +231,11 @@ namespace V_1._2
             this.toolStripMenuItem6.Name = "toolStripMenuItem6";
             resources.ApplyResources(this.toolStripMenuItem6, "toolStripMenuItem6");
             // 
+            // toolStripMenuItem2
+            // 
+            this.toolStripMenuItem2.Name = "toolStripMenuItem2";
+            resources.ApplyResources(this.toolStripMenuItem2, "toolStripMenuItem2");
+            // 
             // MainForm
             // 
             resources.ApplyResources(this, "$this");
@@ -271,7 +271,6 @@ namespace V_1._2
         private System.Windows.Forms.ToolStripMenuItem открытьToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem сохранитьToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem выходToolStripMenuItem;
-        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem2;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem3;
         private System.Windows.Forms.Panel stageControlPanel;
         private System.Windows.Forms.Button promptButton;
@@ -282,6 +281,7 @@ namespace V_1._2
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem5;
         private System.Windows.Forms.ToolStripMenuItem листингНаPythonToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem6;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem2;
     }
 }
 

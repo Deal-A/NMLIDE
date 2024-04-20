@@ -42,5 +42,19 @@ namespace V_1._2
         {
             ViewCurrentSampleForm.Show();
         }
+
+        private void openButton_Click(object sender, EventArgs e)
+        {
+            var openFileDialog = new OpenFileDialog();
+
+            openFileDialog.Filter = "CSV Files (*.csv)|*.csv";
+            openFileDialog.FilterIndex = 1;
+
+            DialogResult result = openFileDialog.ShowDialog();
+            if (result == DialogResult.OK)
+            {
+                string filePath = openFileDialog.FileName;
+            }
+        }
     }
 }

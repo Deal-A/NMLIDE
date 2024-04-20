@@ -45,6 +45,7 @@ namespace V_1._2
             this.label3 = new System.Windows.Forms.Label();
             this.viewResourceButton = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
+            this.openButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // listView1
@@ -55,6 +56,7 @@ namespace V_1._2
             this.listView1.Size = new System.Drawing.Size(349, 594);
             this.listView1.TabIndex = 0;
             this.listView1.UseCompatibleStateImageBehavior = false;
+            this.listView1.View = System.Windows.Forms.View.Details;
             // 
             // listView2
             // 
@@ -64,6 +66,7 @@ namespace V_1._2
             this.listView2.Size = new System.Drawing.Size(349, 145);
             this.listView2.TabIndex = 0;
             this.listView2.UseCompatibleStateImageBehavior = false;
+            this.listView2.View = System.Windows.Forms.View.Details;
             this.listView2.MouseDown += new System.Windows.Forms.MouseEventHandler(this.listView2_MouseDown);
             // 
             // listView3
@@ -74,6 +77,7 @@ namespace V_1._2
             this.listView3.Size = new System.Drawing.Size(349, 145);
             this.listView3.TabIndex = 0;
             this.listView3.UseCompatibleStateImageBehavior = false;
+            this.listView3.View = System.Windows.Forms.View.Details;
             // 
             // listView4
             // 
@@ -83,6 +87,7 @@ namespace V_1._2
             this.listView4.Size = new System.Drawing.Size(349, 145);
             this.listView4.TabIndex = 0;
             this.listView4.UseCompatibleStateImageBehavior = false;
+            this.listView4.View = System.Windows.Forms.View.Details;
             // 
             // allR2TButton
             // 
@@ -193,6 +198,16 @@ namespace V_1._2
             this.label4.TabIndex = 4;
             this.label4.Text = "Исходная";
             // 
+            // openButton
+            // 
+            this.openButton.Location = new System.Drawing.Point(23, 633);
+            this.openButton.Name = "openButton";
+            this.openButton.Size = new System.Drawing.Size(107, 29);
+            this.openButton.TabIndex = 3;
+            this.openButton.Text = "Открыть";
+            this.openButton.UseVisualStyleBackColor = true;
+            this.openButton.Click += new System.EventHandler(this.openButton_Click);
+            // 
             // TrainingSampleForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -202,6 +217,7 @@ namespace V_1._2
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label1);
+            this.Controls.Add(this.openButton);
             this.Controls.Add(this.viewResourceButton);
             this.Controls.Add(this.viewTestButton);
             this.Controls.Add(this.viewValidationButton);
@@ -239,5 +255,6 @@ namespace V_1._2
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Button viewResourceButton;
         private System.Windows.Forms.Label label4;
+        private System.Windows.Forms.Button openButton;
     }
 }
