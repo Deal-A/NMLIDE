@@ -91,9 +91,9 @@ namespace V_1._2
             // 
             // allR2TButton
             // 
-            this.allR2TButton.Location = new System.Drawing.Point(406, 288);
+            this.allR2TButton.Location = new System.Drawing.Point(406, 295);
             this.allR2TButton.Name = "allR2TButton";
-            this.allR2TButton.Size = new System.Drawing.Size(75, 23);
+            this.allR2TButton.Size = new System.Drawing.Size(75, 31);
             this.allR2TButton.TabIndex = 1;
             this.allR2TButton.Text = ">>";
             this.allR2TButton.UseVisualStyleBackColor = true;
@@ -102,25 +102,25 @@ namespace V_1._2
             // 
             this.r2TButton.Location = new System.Drawing.Point(406, 259);
             this.r2TButton.Name = "r2TButton";
-            this.r2TButton.Size = new System.Drawing.Size(75, 23);
+            this.r2TButton.Size = new System.Drawing.Size(75, 31);
             this.r2TButton.TabIndex = 1;
             this.r2TButton.Text = ">";
             this.r2TButton.UseVisualStyleBackColor = true;
             // 
             // allT2RButton
             // 
-            this.allT2RButton.Location = new System.Drawing.Point(406, 351);
+            this.allT2RButton.Location = new System.Drawing.Point(406, 371);
             this.allT2RButton.Name = "allT2RButton";
-            this.allT2RButton.Size = new System.Drawing.Size(75, 23);
+            this.allT2RButton.Size = new System.Drawing.Size(75, 31);
             this.allT2RButton.TabIndex = 1;
             this.allT2RButton.Text = "<<";
             this.allT2RButton.UseVisualStyleBackColor = true;
             // 
             // t2RButton
             // 
-            this.t2RButton.Location = new System.Drawing.Point(406, 322);
+            this.t2RButton.Location = new System.Drawing.Point(406, 334);
             this.t2RButton.Name = "t2RButton";
-            this.t2RButton.Size = new System.Drawing.Size(75, 23);
+            this.t2RButton.Size = new System.Drawing.Size(75, 31);
             this.t2RButton.TabIndex = 1;
             this.t2RButton.Text = "<";
             this.t2RButton.UseVisualStyleBackColor = true;
