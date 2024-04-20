@@ -117,10 +117,6 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
-  <data name="обучениеНачатьToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>313, 26</value>
-  </data>
   <data name="&gt;&gt;обучениеНачатьToolStripMenuItem.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
@@ -128,6 +124,7 @@
   <data name="menuStrip1.TabIndex" type="System.Int32, mscorlib">
     <value>0</value>
   </data>
+  <assembly alias="System.Drawing" name="System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a" />
   <data name="toolStripMenuItem3.Size" type="System.Drawing.Size, System.Drawing">
     <value>156, 24</value>
   </data>
@@ -158,11 +155,11 @@
   <data name="параметрыОбученияToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
     <value>313, 26</value>
   </data>
-  <data name="&gt;&gt;графикиФункцийToolStripMenuItem.Name" xml:space="preserve">
-    <value>графикиФункцийToolStripMenuItem</value>
-  </data>
   <data name="помощьToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
     <value>147, 24</value>
+  </data>
+  <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
+    <value>8, 16</value>
   </data>
   <data name="открытьToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
     <value>224, 26</value>
@@ -175,6 +172,9 @@
   </data>
   <data name="toolStripMenuItem2.Size" type="System.Drawing.Size, System.Drawing">
     <value>156, 24</value>
+  </data>
+  <data name="результатыОбученияToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>313, 26</value>
   </data>
   <data name="результатыТестаToolStripMenuItem.Text" xml:space="preserve">
     <value>Результаты теста</value>
@@ -212,9 +212,6 @@
   <data name="&gt;&gt;сохранитьToolStripMenuItem.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="$this.AutoScaleDimensions" type="System.Drawing.SizeF, System.Drawing">
-    <value>8, 16</value>
-  </data>
   <data name="выборИНСToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
     <value>313, 26</value>
   </data>
@@ -245,14 +242,14 @@
   <data name="&gt;&gt;помощьToolStripMenuItem.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="протоколToolStripMenuItem.Text" xml:space="preserve">
-    <value>Протокол</value>
-  </data>
   <data name="&gt;&gt;menuStrip1.Type" xml:space="preserve">
     <value>System.Windows.Forms.MenuStrip, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
   <data name="&gt;&gt;результатыТестаToolStripMenuItem.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="результатыТестаToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>313, 26</value>
   </data>
   <data name="toolStripMenuItem1.Text" xml:space="preserve">
     <value>Файл</value>
@@ -277,6 +274,9 @@
   </data>
   <data name="&gt;&gt;загрузитьВыборкуToolStripMenuItem.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
+  </data>
+  <data name="&gt;&gt;toolStripMenuItem2.Name" xml:space="preserve">
+    <value>toolStripMenuItem2</value>
   </data>
   <data name="&gt;&gt;toolStripMenuItem2.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
@@ -320,8 +320,8 @@
   <data name="menuStrip1.Text" xml:space="preserve">
     <value>menuStrip1</value>
   </data>
-  <data name="результатыТестаToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>313, 26</value>
+  <data name="протоколToolStripMenuItem.Text" xml:space="preserve">
+    <value>Протокол</value>
   </data>
   <data name="menuStrip1.Size" type="System.Drawing.Size, System.Drawing">
     <value>859, 28</value>
@@ -338,8 +338,8 @@
   <data name="menuStrip1.Location" type="System.Drawing.Point, System.Drawing">
     <value>0, 0</value>
   </data>
-  <data name="результатыОбученияToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
-    <value>313, 26</value>
+  <data name="&gt;&gt;графикиФункцийToolStripMenuItem.Name" xml:space="preserve">
+    <value>графикиФункцийToolStripMenuItem</value>
   </data>
   <data name="&gt;&gt;выборИНСToolStripMenuItem.Name" xml:space="preserve">
     <value>выборИНСToolStripMenuItem</value>
@@ -374,8 +374,8 @@
   <data name="&gt;&gt;выборИНСToolStripMenuItem.Type" xml:space="preserve">
     <value>System.Windows.Forms.ToolStripMenuItem, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </data>
-  <data name="&gt;&gt;toolStripMenuItem2.Name" xml:space="preserve">
-    <value>toolStripMenuItem2</value>
+  <data name="обучениеНачатьToolStripMenuItem.Size" type="System.Drawing.Size, System.Drawing">
+    <value>313, 26</value>
   </data>
   <metadata name="menuStrip1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
     <value>17, 17</value>

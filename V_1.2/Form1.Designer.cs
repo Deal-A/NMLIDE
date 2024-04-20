@@ -47,6 +47,8 @@ namespace V_1._2
             this.протоколToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.помощьToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.помощьToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem3 = new System.Windows.Forms.ToolStripMenuItem();
             this.menuStrip1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -58,6 +60,7 @@ namespace V_1._2
             this.toolStripMenuItem1,
             this.дейсвтиеToolStripMenuItem,
             this.помощьToolStripMenuItem,
+            this.toolStripMenuItem2,
             this.помощьToolStripMenuItem1});
             this.menuStrip1.Name = "menuStrip1";
             // 
@@ -65,6 +68,7 @@ namespace V_1._2
             // 
             resources.ApplyResources(this.toolStripMenuItem1, "toolStripMenuItem1");
             this.toolStripMenuItem1.DropDownItems.AddRange(new System.Windows.Forms.ToolStripItem[] {
+            this.toolStripMenuItem3,
             this.открытьToolStripMenuItem,
             this.сохранитьToolStripMenuItem,
             this.выходToolStripMenuItem});
@@ -159,6 +163,17 @@ namespace V_1._2
             this.помощьToolStripMenuItem1.Name = "помощьToolStripMenuItem1";
             this.помощьToolStripMenuItem1.Click += new System.EventHandler(this.помощьToolStripMenuItem1_Click);
             // 
+            // toolStripMenuItem2
+            // 
+            resources.ApplyResources(this.toolStripMenuItem2, "toolStripMenuItem2");
+            this.toolStripMenuItem2.Name = "toolStripMenuItem2";
+            // 
+            // toolStripMenuItem3
+            // 
+            resources.ApplyResources(this.toolStripMenuItem3, "toolStripMenuItem3");
+            this.toolStripMenuItem3.Name = "toolStripMenuItem3";
+            this.toolStripMenuItem3.Click += new System.EventHandler(this.toolStripMenuItem3_Click);
+            // 
             // MainForm
             // 
             resources.ApplyResources(this, "$this");
@@ -193,6 +208,8 @@ namespace V_1._2
         private System.Windows.Forms.ToolStripMenuItem открытьToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem сохранитьToolStripMenuItem;
         private System.Windows.Forms.ToolStripMenuItem выходToolStripMenuItem;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem2;
+        private System.Windows.Forms.ToolStripMenuItem toolStripMenuItem3;
     }
 }
 
