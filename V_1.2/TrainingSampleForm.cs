@@ -56,5 +56,10 @@ namespace V_1._2
                 string filePath = openFileDialog.FileName;
             }
         }
+
+        private void doneButton_Click(object sender, EventArgs e)
+        {
+
+        }
     }
 }

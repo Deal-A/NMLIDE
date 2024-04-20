@@ -46,6 +46,7 @@ namespace V_1._2
             this.viewResourceButton = new System.Windows.Forms.Button();
             this.label4 = new System.Windows.Forms.Label();
             this.openButton = new System.Windows.Forms.Button();
+            this.doneButton = new System.Windows.Forms.Button();
             this.SuspendLayout();
             // 
             // listView1
@@ -208,16 +209,28 @@ namespace V_1._2
             this.openButton.UseVisualStyleBackColor = true;
             this.openButton.Click += new System.EventHandler(this.openButton_Click);
             // 
+            // doneButton
+            // 
+            this.doneButton.Anchor = ((System.Windows.Forms.AnchorStyles)((System.Windows.Forms.AnchorStyles.Bottom | System.Windows.Forms.AnchorStyles.Right)));
+            this.doneButton.Location = new System.Drawing.Point(832, 697);
+            this.doneButton.Name = "doneButton";
+            this.doneButton.Size = new System.Drawing.Size(107, 32);
+            this.doneButton.TabIndex = 3;
+            this.doneButton.Text = "Готово";
+            this.doneButton.UseVisualStyleBackColor = true;
+            this.doneButton.Click += new System.EventHandler(this.doneButton_Click);
+            // 
             // TrainingSampleForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(944, 693);
+            this.ClientSize = new System.Drawing.Size(951, 741);
             this.Controls.Add(this.label3);
             this.Controls.Add(this.label2);
             this.Controls.Add(this.label4);
             this.Controls.Add(this.label1);
             this.Controls.Add(this.openButton);
+            this.Controls.Add(this.doneButton);
             this.Controls.Add(this.viewResourceButton);
             this.Controls.Add(this.viewTestButton);
             this.Controls.Add(this.viewValidationButton);
@@ -256,5 +269,6 @@ namespace V_1._2
         private System.Windows.Forms.Button viewResourceButton;
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Button openButton;
+        private System.Windows.Forms.Button doneButton;
     }
 }

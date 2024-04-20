@@ -15,6 +15,7 @@ namespace V_1._2
         private ModeChoosingStartForm ModeChoosingStartForm;
         private KnowledgeTesting KnowledgeTesting;
         private TrainingSampleForm TrainingSampleForm;
+        private ANNForm ANNForm;
 
         public MainForm()
         {
@@ -81,9 +82,10 @@ namespace V_1._2
             KnowledgeTesting.Hide();
 
             TrainingSampleForm = new TrainingSampleForm();
-
             TrainingSampleForm.Hide();
 
+            ANNForm = new ANNForm();
+            ANNForm.Hide();
         }
         private void simpleButton1_Click(object sender, EventArgs e)
         {
@@ -138,7 +140,7 @@ namespace V_1._2
 
         private void toolStripMenuItem5_Click(object sender, EventArgs e)
         {
-
+            ANNForm.Show();
         }
     }
 }
