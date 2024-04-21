@@ -7,26 +7,24 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
-using Gecko;
+
+using CefSharp.DevTools.IO;
+using CefSharp.WinForms;
 
 namespace V_1._2
 {
+
     public partial class ANNForm : Form
     {
-        private GeckoWebBrowser geckoWebBrowser;
+
+        ChromiumWebBrowser c_br;
         public ANNForm()
         {
             InitializeComponent();
 
-            string our = "D:\\Веб\\Обучение\\Vyatka_bank_local\\index.html";
-            string highLoad = "https://hellomonday.com/";
+            c_br = new ChromiumWebBrowser() { Dock = DockStyle.Fill };
 
-            Xpcom.Initialize("Firefox64");
-
-            geckoWebBrowser = new GeckoWebBrowser { Dock = DockStyle.Fill };
-
-            panel1.Controls.Add(geckoWebBrowser);
-
+            panel1.Controls.Add(c_br);
 
         }
 
@@ -38,7 +36,7 @@ namespace V_1._2
 
         private void checkButton_Click(object sender, EventArgs e)
         {
-            geckoWebBrowser.Navigate(textBox1.Text);
+            c_br.LoadUrl(textBox1.Text);
         }
     }
 }

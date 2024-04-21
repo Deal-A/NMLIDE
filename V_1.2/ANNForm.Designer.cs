@@ -40,10 +40,10 @@ namespace V_1._2
             this.numericUpDown3 = new System.Windows.Forms.NumericUpDown();
             this.numericUpDown4 = new System.Windows.Forms.NumericUpDown();
             this.button1 = new System.Windows.Forms.Button();
-            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.panel1 = new System.Windows.Forms.Panel();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.checkButton = new System.Windows.Forms.Button();
+            this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
+            this.panel1 = new System.Windows.Forms.Panel();
             this.tableLayoutPanel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
@@ -244,6 +244,23 @@ namespace V_1._2
             this.button1.Text = "Изменить";
             this.button1.UseVisualStyleBackColor = true;
             // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(3, 178);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(238, 22);
+            this.textBox1.TabIndex = 11;
+            // 
+            // checkButton
+            // 
+            this.checkButton.Location = new System.Drawing.Point(247, 178);
+            this.checkButton.Name = "checkButton";
+            this.checkButton.Size = new System.Drawing.Size(94, 60);
+            this.checkButton.TabIndex = 12;
+            this.checkButton.Text = "Проверить";
+            this.checkButton.UseVisualStyleBackColor = true;
+            this.checkButton.Click += new System.EventHandler(this.checkButton_Click);
+            // 
             // tableLayoutPanel1
             // 
             this.tableLayoutPanel1.ColumnCount = 2;
@@ -266,23 +283,6 @@ namespace V_1._2
             this.panel1.Name = "panel1";
             this.panel1.Size = new System.Drawing.Size(721, 781);
             this.panel1.TabIndex = 1;
-            // 
-            // textBox1
-            // 
-            this.textBox1.Location = new System.Drawing.Point(3, 178);
-            this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(238, 22);
-            this.textBox1.TabIndex = 11;
-            // 
-            // checkButton
-            // 
-            this.checkButton.Location = new System.Drawing.Point(247, 178);
-            this.checkButton.Name = "checkButton";
-            this.checkButton.Size = new System.Drawing.Size(94, 60);
-            this.checkButton.TabIndex = 12;
-            this.checkButton.Text = "Проверить";
-            this.checkButton.UseVisualStyleBackColor = true;
-            this.checkButton.Click += new System.EventHandler(this.checkButton_Click);
             // 
             // ANNForm
             // 
