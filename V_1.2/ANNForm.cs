@@ -13,25 +13,32 @@ namespace V_1._2
 {
     public partial class ANNForm : Form
     {
+        private GeckoWebBrowser geckoWebBrowser;
         public ANNForm()
         {
             InitializeComponent();
 
             string our = "D:\\Веб\\Обучение\\Vyatka_bank_local\\index.html";
+            string highLoad = "https://hellomonday.com/";
 
             Xpcom.Initialize("Firefox64");
 
-            var geckoWebBrowser = new GeckoWebBrowser { Dock = DockStyle.Fill };
+            geckoWebBrowser = new GeckoWebBrowser { Dock = DockStyle.Fill };
 
             panel1.Controls.Add(geckoWebBrowser);
 
-            geckoWebBrowser.Navigate(our);
+
         }
 
         protected override void OnFormClosing(FormClosingEventArgs e)
         {
             e.Cancel = true;
             Hide();
+        }
+
+        private void checkButton_Click(object sender, EventArgs e)
+        {
+            geckoWebBrowser.Navigate(textBox1.Text);
         }
     }
 }

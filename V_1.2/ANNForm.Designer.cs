@@ -42,6 +42,8 @@ namespace V_1._2
             this.button1 = new System.Windows.Forms.Button();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.textBox1 = new System.Windows.Forms.TextBox();
+            this.checkButton = new System.Windows.Forms.Button();
             this.tableLayoutPanel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
@@ -65,6 +67,8 @@ namespace V_1._2
             this.tableLayoutPanel2.Controls.Add(this.numericUpDown3, 1, 2);
             this.tableLayoutPanel2.Controls.Add(this.numericUpDown4, 1, 3);
             this.tableLayoutPanel2.Controls.Add(this.button1, 1, 4);
+            this.tableLayoutPanel2.Controls.Add(this.textBox1, 0, 5);
+            this.tableLayoutPanel2.Controls.Add(this.checkButton, 1, 5);
             this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel2.Location = new System.Drawing.Point(3, 3);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
@@ -263,6 +267,23 @@ namespace V_1._2
             this.panel1.Size = new System.Drawing.Size(721, 781);
             this.panel1.TabIndex = 1;
             // 
+            // textBox1
+            // 
+            this.textBox1.Location = new System.Drawing.Point(3, 178);
+            this.textBox1.Name = "textBox1";
+            this.textBox1.Size = new System.Drawing.Size(238, 22);
+            this.textBox1.TabIndex = 11;
+            // 
+            // checkButton
+            // 
+            this.checkButton.Location = new System.Drawing.Point(247, 178);
+            this.checkButton.Name = "checkButton";
+            this.checkButton.Size = new System.Drawing.Size(94, 60);
+            this.checkButton.TabIndex = 12;
+            this.checkButton.Text = "Проверить";
+            this.checkButton.UseVisualStyleBackColor = true;
+            this.checkButton.Click += new System.EventHandler(this.checkButton_Click);
+            // 
             // ANNForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -297,5 +318,7 @@ namespace V_1._2
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.Panel panel1;
+        private System.Windows.Forms.TextBox textBox1;
+        private System.Windows.Forms.Button checkButton;
     }
 }
