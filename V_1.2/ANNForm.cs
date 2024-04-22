@@ -1,4 +1,5 @@
 ﻿using System;
+using System.IO;
 using System.Collections.Generic;
 using System.ComponentModel;
 using System.Data;
@@ -18,6 +19,10 @@ namespace V_1._2
     {
 
         ChromiumWebBrowser c_br;
+
+        private string graphUrl = "http://localhost:5173/";
+        private string vueAppPath = "D:\\_1Study\\ВКР\\P\\V_1\\test_vue\\vue-project\\src\\App.vue";
+
         public ANNForm()
         {
             InitializeComponent();
@@ -26,8 +31,9 @@ namespace V_1._2
 
             panel1.Controls.Add(c_br);
 
-        }
+            c_br.LoadUrl(graphUrl);
 
+        }
         protected override void OnFormClosing(FormClosingEventArgs e)
         {
             e.Cancel = true;
@@ -36,7 +42,37 @@ namespace V_1._2
 
         private void checkButton_Click(object sender, EventArgs e)
         {
-            c_br.LoadUrl(textBox1.Text);
+            c_br.LoadUrl(checkButton.Text);
+        }
+
+        public static void ChangeLine(string filePath, int lineIndex, string newLine)
+        {
+            string[] lines = File.ReadAllLines(filePath);
+            lines[lineIndex - 1] = newLine;
+            File.WriteAllLines(filePath, lines);
+        }
+
+        private void numericUpDown1_ValueChanged(object sender, EventArgs e)
+        {
+            var inputs = ((NumericUpDown)sender).Value;
+            string templ = $"  inputs:{inputs},";
+
+            ChangeLine(vueAppPath, 20,templ);
+            c_br.LoadUrl(graphUrl);
+        }
+
+        private void numericUpDown2_ValueChanged(object sender, EventArgs e)
+        {
+            var tmp = ((NumericUpDown)sender).Value;
+            string templ = $"  outputs:{tmp},";
+
+            ChangeLine(vueAppPath, 21, templ);
+            c_br.LoadUrl(graphUrl);
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

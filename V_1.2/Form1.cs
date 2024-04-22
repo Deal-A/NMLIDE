@@ -85,6 +85,7 @@ namespace V_1._2
             TrainingSampleForm.Hide();
 
             ANNForm = new ANNForm();
+            ANNForm.Show();// Чтобы сразу прогрузить, затеб быстрее будет
             ANNForm.Hide();
         }
         private void simpleButton1_Click(object sender, EventArgs e)
@@ -140,7 +141,23 @@ namespace V_1._2
 
         private void toolStripMenuItem5_Click(object sender, EventArgs e)
         {
+            ANNForm_Show();
+        }
+
+        private void ANNForm_Show()
+        {
+            if (null == ANNForm) 
+            {
+                ANNForm = new ANNForm();
+            }
+
+            loadAnnFormByModel();
             ANNForm.Show();
+        }
+
+        private void loadAnnFormByModel()
+        {
+            
         }
     }
 }

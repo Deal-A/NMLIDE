@@ -38,17 +38,16 @@ namespace V_1._2
             this.label4 = new System.Windows.Forms.Label();
             this.label5 = new System.Windows.Forms.Label();
             this.numericUpDown3 = new System.Windows.Forms.NumericUpDown();
-            this.numericUpDown4 = new System.Windows.Forms.NumericUpDown();
             this.button1 = new System.Windows.Forms.Button();
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.checkButton = new System.Windows.Forms.Button();
+            this.button2 = new System.Windows.Forms.Button();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.panel1 = new System.Windows.Forms.Panel();
             this.tableLayoutPanel2.SuspendLayout();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).BeginInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown3)).BeginInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown4)).BeginInit();
             this.tableLayoutPanel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -65,10 +64,10 @@ namespace V_1._2
             this.tableLayoutPanel2.Controls.Add(this.label4, 0, 3);
             this.tableLayoutPanel2.Controls.Add(this.label5, 0, 4);
             this.tableLayoutPanel2.Controls.Add(this.numericUpDown3, 1, 2);
-            this.tableLayoutPanel2.Controls.Add(this.numericUpDown4, 1, 3);
             this.tableLayoutPanel2.Controls.Add(this.button1, 1, 4);
             this.tableLayoutPanel2.Controls.Add(this.textBox1, 0, 5);
             this.tableLayoutPanel2.Controls.Add(this.checkButton, 1, 5);
+            this.tableLayoutPanel2.Controls.Add(this.button2, 1, 3);
             this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel2.Location = new System.Drawing.Point(3, 3);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
@@ -117,6 +116,7 @@ namespace V_1._2
             0,
             0,
             0});
+            this.numericUpDown2.ValueChanged += new System.EventHandler(this.numericUpDown2_ValueChanged);
             // 
             // label1
             // 
@@ -152,6 +152,7 @@ namespace V_1._2
             0,
             0,
             0});
+            this.numericUpDown1.ValueChanged += new System.EventHandler(this.numericUpDown1_ValueChanged);
             // 
             // label3
             // 
@@ -163,6 +164,7 @@ namespace V_1._2
             this.label3.Size = new System.Drawing.Size(231, 27);
             this.label3.TabIndex = 5;
             this.label3.Text = "Скрытых слоев";
+            this.label3.Visible = false;
             // 
             // label4
             // 
@@ -209,30 +211,7 @@ namespace V_1._2
             0,
             0,
             0});
-            // 
-            // numericUpDown4
-            // 
-            this.numericUpDown4.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.numericUpDown4.Location = new System.Drawing.Point(247, 113);
-            this.numericUpDown4.Margin = new System.Windows.Forms.Padding(3, 8, 3, 3);
-            this.numericUpDown4.Maximum = new decimal(new int[] {
-            10,
-            0,
-            0,
-            0});
-            this.numericUpDown4.Minimum = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
-            this.numericUpDown4.Name = "numericUpDown4";
-            this.numericUpDown4.Size = new System.Drawing.Size(94, 22);
-            this.numericUpDown4.TabIndex = 9;
-            this.numericUpDown4.Value = new decimal(new int[] {
-            1,
-            0,
-            0,
-            0});
+            this.numericUpDown3.Visible = false;
             // 
             // button1
             // 
@@ -250,6 +229,7 @@ namespace V_1._2
             this.textBox1.Name = "textBox1";
             this.textBox1.Size = new System.Drawing.Size(238, 22);
             this.textBox1.TabIndex = 11;
+            this.textBox1.Visible = false;
             // 
             // checkButton
             // 
@@ -259,7 +239,19 @@ namespace V_1._2
             this.checkButton.TabIndex = 12;
             this.checkButton.Text = "Проверить";
             this.checkButton.UseVisualStyleBackColor = true;
+            this.checkButton.Visible = false;
             this.checkButton.Click += new System.EventHandler(this.checkButton_Click);
+            // 
+            // button2
+            // 
+            this.button2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.button2.Location = new System.Drawing.Point(247, 108);
+            this.button2.Name = "button2";
+            this.button2.Size = new System.Drawing.Size(94, 29);
+            this.button2.TabIndex = 13;
+            this.button2.Text = "Изменить";
+            this.button2.UseVisualStyleBackColor = true;
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // tableLayoutPanel1
             // 
@@ -279,9 +271,10 @@ namespace V_1._2
             // panel1
             // 
             this.panel1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.panel1.Location = new System.Drawing.Point(353, 3);
+            this.panel1.Location = new System.Drawing.Point(350, 0);
+            this.panel1.Margin = new System.Windows.Forms.Padding(0);
             this.panel1.Name = "panel1";
-            this.panel1.Size = new System.Drawing.Size(721, 781);
+            this.panel1.Size = new System.Drawing.Size(727, 787);
             this.panel1.TabIndex = 1;
             // 
             // ANNForm
@@ -297,7 +290,6 @@ namespace V_1._2
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown2)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown1)).EndInit();
             ((System.ComponentModel.ISupportInitialize)(this.numericUpDown3)).EndInit();
-            ((System.ComponentModel.ISupportInitialize)(this.numericUpDown4)).EndInit();
             this.tableLayoutPanel1.ResumeLayout(false);
             this.ResumeLayout(false);
 
@@ -314,11 +306,11 @@ namespace V_1._2
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label5;
         private System.Windows.Forms.NumericUpDown numericUpDown3;
-        private System.Windows.Forms.NumericUpDown numericUpDown4;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.TableLayoutPanel tableLayoutPanel1;
         private System.Windows.Forms.Panel panel1;
         private System.Windows.Forms.TextBox textBox1;
         private System.Windows.Forms.Button checkButton;
+        private System.Windows.Forms.Button button2;
     }
 }
