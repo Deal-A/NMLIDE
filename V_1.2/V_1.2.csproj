@@ -154,37 +154,59 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
-    <Compile Include="ANNForm.cs" />
+    <Compile Include="ANNForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="ANNForm.Designer.cs">
       <DependentUpon>ANNForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="Form1.cs" />
+    <Compile Include="Form1.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
     </Compile>
-    <Compile Include="KnowledgeTesting.cs" />
+    <Compile Include="HidenLayersSettingsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="HidenLayersSettingsForm.Designer.cs">
+      <DependentUpon>HidenLayersSettingsForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="KnowledgeTesting.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="KnowledgeTesting.Designer.cs">
       <DependentUpon>KnowledgeTesting.cs</DependentUpon>
     </Compile>
-    <Compile Include="KnowledgeTestProtocol.cs" />
+    <Compile Include="KnowledgeTestProtocol.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="KnowledgeTestProtocol.Designer.cs">
       <DependentUpon>KnowledgeTestProtocol.cs</DependentUpon>
     </Compile>
-    <Compile Include="ModeChoosingStartForm.cs" />
+    <Compile Include="ModeChoosingStartForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="ModeChoosingStartForm.Designer.cs">
       <DependentUpon>ModeChoosingStartForm.cs</DependentUpon>
     </Compile>
     <Compile Include="Program.cs" />
     <Compile Include="Properties\AssemblyInfo.cs" />
-    <Compile Include="QuestionImage.cs" />
+    <Compile Include="QuestionImage.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="QuestionImage.Designer.cs">
       <DependentUpon>QuestionImage.cs</DependentUpon>
     </Compile>
-    <Compile Include="TrainingSampleForm.cs" />
+    <Compile Include="TrainingSampleForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="TrainingSampleForm.Designer.cs">
       <DependentUpon>TrainingSampleForm.cs</DependentUpon>
     </Compile>
-    <Compile Include="ViewCurrentSampleForm.cs" />
+    <Compile Include="ViewCurrentSampleForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
     <Compile Include="ViewCurrentSampleForm.Designer.cs">
       <DependentUpon>ViewCurrentSampleForm.cs</DependentUpon>
     </Compile>
@@ -199,6 +221,9 @@
     </EmbeddedResource>
     <EmbeddedResource Include="Form1.ru.resx">
       <DependentUpon>Form1.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="HidenLayersSettingsForm.resx">
+      <DependentUpon>HidenLayersSettingsForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="KnowledgeTesting.resx">
       <DependentUpon>KnowledgeTesting.cs</DependentUpon>

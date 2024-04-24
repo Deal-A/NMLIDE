@@ -34,6 +34,7 @@ namespace V_1._2
             ModeChoosingStartForm.ExperimentModeClick += ExperimentModeOpenMainForm;
             ModeChoosingStartForm.ModelingModeClick += ModelingModeOpenMainForm;
 
+            // При запуске прячет главную форму, чтобы показать форму входа
             Shown += MainForm_Shown;
 
             KnowledgeTesting.TestFinished += ChooseTrainDataStage;

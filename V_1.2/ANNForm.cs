@@ -20,8 +20,11 @@ namespace V_1._2
 
         ChromiumWebBrowser c_br;
 
+        HidenLayersSettingsForm HidenLayersSettingsForm;
+
         private string graphUrl = "http://localhost:5173/";
         private string vueAppPath = "D:\\_1Study\\ВКР\\P\\V_1\\test_vue\\vue-project\\src\\App.vue";
+        private string _initNeuronLStruct = "[1]";
 
         public ANNForm()
         {
@@ -31,9 +34,20 @@ namespace V_1._2
 
             panel1.Controls.Add(c_br);
 
-            c_br.LoadUrl(graphUrl);
+            //c_br.LoadUrl(graphUrl);
 
+            HidenLayersSettingsForm = new HidenLayersSettingsForm();
+
+
+            HidenLayersSettingsForm.HasApplied += HidenLayersSettingsForm_HasApplied;
         }
+
+        private void HidenLayersSettingsForm_HasApplied()
+        {
+            string templ = $"  hidenLayersArr : {HidenLayersSettingsForm.neuronNodel}";
+            updateLineReload(templ, 22);
+        }
+
         protected override void OnFormClosing(FormClosingEventArgs e)
         {
             e.Cancel = true;
@@ -57,8 +71,8 @@ namespace V_1._2
             var inputs = ((NumericUpDown)sender).Value;
             string templ = $"  inputs:{inputs},";
 
-            ChangeLine(vueAppPath, 20,templ);
-            c_br.LoadUrl(graphUrl);
+            updateLineReload(templ,20);
+
         }
 
         private void numericUpDown2_ValueChanged(object sender, EventArgs e)
@@ -66,12 +80,44 @@ namespace V_1._2
             var tmp = ((NumericUpDown)sender).Value;
             string templ = $"  outputs:{tmp},";
 
-            ChangeLine(vueAppPath, 21, templ);
+            updateLineReload(templ, 21);
+
+        }
+
+        private void updateLineReload(string l, int n) 
+        {
+            ChangeLine(vueAppPath, n, l);
             c_br.LoadUrl(graphUrl);
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
+
+        }
+
+        private void button1_Click(object sender, EventArgs e)
+        {
+            HidenLayersSettingsForm.Show();
+        }
+
+        private void button2_Click_1(object sender, EventArgs e)
+        {
+            if (null == HidenLayersSettingsForm.neuronNodel) 
+            {
+                MessageBox.Show("Не заполнены скрытые слои");
+                return;
+            }
+
+            
+            c_br.LoadUrl(graphUrl);
+        }
+
+        private void _updateByModel()
+        {
+
+            updateLineReload($"  inputs:{numericUpDown1.Value},", 20);
+            updateLineReload($"  outputs:{numericUpDown2.Value},", 21);
+            updateLineReload($"  hidenLayersArr : {HidenLayersSettingsForm.neuronNodel}", 22);
 
         }
     }
