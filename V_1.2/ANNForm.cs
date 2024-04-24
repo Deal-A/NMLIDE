@@ -44,8 +44,9 @@ namespace V_1._2
 
         private void HidenLayersSettingsForm_HasApplied()
         {
-            string templ = $"  hidenLayersArr : {HidenLayersSettingsForm.neuronNodel}";
-            updateLineReload(templ, 22);
+            //string templ = $"  hidenLayersArr : {HidenLayersSettingsForm.neuronNodel}";
+            //updateLineReload(templ, 22);
+            _updateByModel();
         }
 
         protected override void OnFormClosing(FormClosingEventArgs e)
@@ -68,26 +69,19 @@ namespace V_1._2
 
         private void numericUpDown1_ValueChanged(object sender, EventArgs e)
         {
-            var inputs = ((NumericUpDown)sender).Value;
-            string templ = $"  inputs:{inputs},";
-
-            updateLineReload(templ,20);
+            _updateByModel();
 
         }
 
         private void numericUpDown2_ValueChanged(object sender, EventArgs e)
         {
-            var tmp = ((NumericUpDown)sender).Value;
-            string templ = $"  outputs:{tmp},";
-
-            updateLineReload(templ, 21);
+            _updateByModel();
 
         }
 
         private void updateLineReload(string l, int n) 
         {
             ChangeLine(vueAppPath, n, l);
-            c_br.LoadUrl(graphUrl);
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -114,11 +108,16 @@ namespace V_1._2
 
         private void _updateByModel()
         {
+            if (null == HidenLayersSettingsForm.neuronNodel) 
+            {
+                return;
+            }
 
             updateLineReload($"  inputs:{numericUpDown1.Value},", 20);
             updateLineReload($"  outputs:{numericUpDown2.Value},", 21);
             updateLineReload($"  hidenLayersArr : {HidenLayersSettingsForm.neuronNodel}", 22);
 
+            c_br.LoadUrl(graphUrl);
         }
     }
 }
