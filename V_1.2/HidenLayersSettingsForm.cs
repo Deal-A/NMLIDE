@@ -318,12 +318,12 @@ namespace V_1._2
         {
             {ActivationFucntion.sigmoid, sigmoid},
             {ActivationFucntion.tanh,tanh},
-            {ActivationFucntion.ReLU,ReLU}
-            //{ActivationFucntion.leakyReLU},
-            //{ActivationFucntion.ELU},
-            //{ActivationFucntion.smoothReLU},
-            //{ActivationFucntion.softsign},
-            //{ActivationFucntion.step}
+            {ActivationFucntion.ReLU,ReLU},
+            {ActivationFucntion.leakyReLU, leakyReLU},
+            {ActivationFucntion.ELU, ELU},
+            {ActivationFucntion.smoothReLU, smoothReLU},
+            {ActivationFucntion.softsign,softSign},
+            {ActivationFucntion.step,step}
         };
 
         public static double sigmoid(double a, double e, double x)
@@ -339,6 +339,30 @@ namespace V_1._2
         public static double ReLU(double a, double e, double x)
         {
             return x > 0 ? x : 0;
+        }
+
+        public static double leakyReLU(double a, double e, double x)
+        {
+            return x > 0 ? x : a * x;
+        }
+
+        public static double ELU(double a, double e, double x)
+        {
+            return x > 0 ? x : a *(Math.Pow(Math.E,x)-1);
+        }
+
+        public static double smoothReLU(double a, double e, double x)
+        {
+            return Math.Log(1+Math.Pow(Math.E,x));
+        }
+        public static double softSign(double a, double e, double x)
+        {
+            return x/(1+Math.Abs(x));
+        }
+
+        public static double step(double a, double e, double x)
+        {
+            return x >= 0 ? 1 : -1;
         }
 
     }

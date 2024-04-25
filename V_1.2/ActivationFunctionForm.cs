@@ -26,6 +26,7 @@ namespace V_1._2
             comboBox1.Items.AddRange(HidenLayersSettings._aFHumanMachineRelDict.Keys.ToArray());
             chart1.Series[0].Points.Clear();
 
+            textBox2.Text = "0,1";
         }
 
         public void Show(ActivationFunctionModel aFM) 
@@ -75,7 +76,6 @@ namespace V_1._2
             }
 
             _updateGraphByModel();
-
         }
 
         private void _updateGraphByModel()
@@ -84,19 +84,41 @@ namespace V_1._2
 
             double a = -11, b = 11, h = 0.05, x, y;
 
-            chart1.Series[0].Points.Clear();
+            double.TryParse(textBox2.Text, out h);
 
+            chart1.Series[0].Points.Clear();
+            
             x = a;
+
+            var aF = HidenLayersSettings._aFHumanMachineRelDict[comboBox1.Text];
+            var func = HidenLayersSettings._aFCalculateRelDict[aF];
+
+            if (_curFModel.activationFucntion == HidenLayersSettings.ActivationFucntion.step) 
+            {
+                // В режиме сплайна появляются артефакты, устранить - в режим линии и увеличить шаг сетки
+                // для всех - медленно, тольк для одно ступени.
+
+                h = 0.01;
+
+                while (x <= b)
+                {
+                    y = func(_curFModel.a, _curFModel.e, x);
+
+                    chart1.Series[0].Points.AddXY(x, y);
+                    x += h;
+                }
+
+                return;
+            }
+
+
             while (x <= b)
             {
-                var aF = HidenLayersSettings._aFHumanMachineRelDict[comboBox1.Text];
-                y = HidenLayersSettings._aFCalculateRelDict[aF](_curFModel.a, _curFModel.e, x);
-
+                y = func(_curFModel.a, _curFModel.e, x);
                 chart1.Series[0].Points.AddXY(x, y);
 
                 x += h;
             }
-
         }
 
         private void button1_Click(object sender, EventArgs e)
