@@ -64,6 +64,8 @@ namespace V_1._2
             activationFunctionForm.HasAppliedFunctionChanges += ActivationFunctionForm_HasAppliedFunctionChanges;
 
 
+            dataGridView1.MouseWheel += dataGridView1_MouseWheel;
+
             dataGridView1.CellBeginEdit += DataGridView1_CellBeginEdit;
 
             dataGridView1.UserAddedRow += DataGridView1_UserAddedRow;
@@ -260,6 +262,47 @@ namespace V_1._2
 
 
             dataGridView1.AllowUserToAddRows = true;
+        }
+
+        private void dataGridView1_CellEnter_1(object sender, DataGridViewCellEventArgs e)
+        {
+            // При фокусе данная ячейка текущая
+            dataGridView1.CurrentCell = dataGridView1.Rows[e.RowIndex].Cells[e.ColumnIndex];
+
+            if (dataGridView1.Columns[e.ColumnIndex] is DataGridViewComboBoxColumn)
+            {
+                dataGridView1.BeginEdit(true);
+            }
+        }
+        private void dataGridView1_MouseWheel(object sender, MouseEventArgs e)
+        {
+            DataGridView dataGridView = (DataGridView)sender;
+            // А коли она текущая, то меняем значение быстро!
+            if (dataGridView.CurrentCell is DataGridViewComboBoxCell)
+            {
+                dataGridView.BeginEdit(true);
+            }
+        }
+
+        private void dataGridView1_CellMouseEnter(object sender, DataGridViewCellEventArgs e)
+        {
+            if (e.RowIndex < 0) 
+            {
+                return;
+            }
+
+            if (e.ColumnIndex < 0)
+            {
+                return;
+            }
+
+            // При фокусе данная ячейка текущая
+            dataGridView1.CurrentCell = dataGridView1.Rows[e.RowIndex].Cells[e.ColumnIndex];
+
+            if (dataGridView1.Columns[e.ColumnIndex] is DataGridViewComboBoxColumn)
+            {
+                dataGridView1.BeginEdit(true);
+            }
         }
     }
 

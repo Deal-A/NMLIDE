@@ -56,9 +56,14 @@ namespace V_1._2
 
         private void textBox1_TextChanged(object sender, EventArgs e)
         {
+
+        }
+
+        private void _alphaUpdated() 
+        {
             double low = -50, high = 50, defaultValue = 0.5;
 
-            if (!double.TryParse(textBox1.Text, out _curFModel.a)) 
+            if (!double.TryParse(textBox1.Text, out _curFModel.a))
             {
                 MessageBox.Show("Ошибка ввода");
                 textBox1.Text = defaultValue.ToString();
@@ -74,6 +79,8 @@ namespace V_1._2
                 MessageBox.Show($"Значение должно меншье или равно {high}");
                 textBox1.Text = defaultValue.ToString();
             }
+
+            double.TryParse(textBox1.Text, out _curFModel.a);
 
             _updateGraphByModel();
         }
@@ -131,6 +138,19 @@ namespace V_1._2
         private void comboBox1_TextChanged(object sender, EventArgs e)
         {
             _updateGraphByModel();
+        }
+
+        private void textBox1_Enter(object sender, EventArgs e)
+        {
+
+        }
+
+        private void textBox1_KeyDown(object sender, KeyEventArgs e)
+        {
+            if (e.KeyCode == Keys.Enter) 
+            {
+                _alphaUpdated();
+            }
         }
     }
 }
