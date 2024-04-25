@@ -154,6 +154,12 @@
     <Reference Include="System.Xml" />
   </ItemGroup>
   <ItemGroup>
+    <Compile Include="ActivationFunctionForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ActivationFunctionForm.Designer.cs">
+      <DependentUpon>ActivationFunctionForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="ANNForm.cs">
       <SubType>Form</SubType>
     </Compile>
@@ -210,6 +216,9 @@
     <Compile Include="ViewCurrentSampleForm.Designer.cs">
       <DependentUpon>ViewCurrentSampleForm.cs</DependentUpon>
     </Compile>
+    <EmbeddedResource Include="ActivationFunctionForm.resx">
+      <DependentUpon>ActivationFunctionForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="ANNForm.resx">
       <DependentUpon>ANNForm.cs</DependentUpon>
     </EmbeddedResource>

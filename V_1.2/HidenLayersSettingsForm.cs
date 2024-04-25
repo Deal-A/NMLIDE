@@ -18,9 +18,10 @@ namespace V_1._2
 
         public event ApplyDelegate HasApplied;
 
-        private List<ActivationFunctionModel> _activationFunctionModelList = new List<ActivationFunctionModel>();
 
-        private List<string> _aFHumanNames = new List<string> {
+        protected List<ActivationFunctionModel> _activationFunctionModelList = new List<ActivationFunctionModel>();
+
+        public List<string> _aFHumanNames = new List<string> {
             "сигмоид",
             "гиперболический тангенс",
             "ReLU",
@@ -33,7 +34,7 @@ namespace V_1._2
 
         public string neuronNodel;
 
-        private enum ActivationFucntion {   sigmoid,
+        public enum ActivationFucntion {   sigmoid,
                                             tanh,
                                             ReLU,
                                             leakyReLU,
@@ -44,19 +45,27 @@ namespace V_1._2
         };
 
         private Dictionary<ActivationFucntion, ActivationFunctionModel> defaultAFDict = new Dictionary<ActivationFucntion, ActivationFunctionModel>();
-        private Dictionary<string, ActivationFucntion> _aFHumanMachineRelDict = new Dictionary<string, ActivationFucntion>();
 
-        private class ActivationFunctionModel
+        private ActivationFunctionForm activationFunctionForm;
+
+        protected class ActivationFunctionModel
         {
             public double e;
             public double a;
-            public ActivationFucntion activationFucntion;
+            public HidenLayersSettings.ActivationFucntion activationFucntion;
 
-            public ActivationFunctionModel(double e, double a, ActivationFucntion activationFucntion) 
+            public ActivationFunctionModel(double e, double a, HidenLayersSettings.ActivationFucntion activationFucntion) 
             {
                 this.a = a;
                 this.e = e;
                 this.activationFucntion = activationFucntion;
+            }
+
+            public ActivationFunctionModel() 
+            {
+                this.a = 0.5;
+                this.e = 0.5;
+                this.activationFucntion = HidenLayersSettings.ActivationFucntion.sigmoid;
             }
 
         }
@@ -68,8 +77,8 @@ namespace V_1._2
             // Таблицая для быстрого редактирования
 
             // Заполнить словарь defaultAFDict
-            _mapHumanAFNToMachine();
-            _fillAFDictByDefault();
+
+            activationFunctionForm = new ActivationFunctionForm();
 
             dataGridView1.CellBeginEdit += DataGridView1_CellBeginEdit;
 
@@ -85,26 +94,6 @@ namespace V_1._2
         private void DataGridView1_CellValueChanged(object sender, DataGridViewCellEventArgs e)
         {
             
-        }
-
-        private void _mapHumanAFNToMachine()
-        {
-            _aFHumanMachineRelDict.Add("сигмоид",ActivationFucntion.sigmoid);
-            _aFHumanMachineRelDict.Add("гиперболический тангенс", ActivationFucntion.tanh);
-            _aFHumanMachineRelDict.Add("ReLU", ActivationFucntion.ReLU);
-            _aFHumanMachineRelDict.Add("leaky ReLU", ActivationFucntion.leakyReLU);
-            _aFHumanMachineRelDict.Add("ELU", ActivationFucntion.ELU);
-            _aFHumanMachineRelDict.Add("SmoothReLU", ActivationFucntion.smoothReLU);
-            _aFHumanMachineRelDict.Add("softsign", ActivationFucntion.softsign);
-            _aFHumanMachineRelDict.Add("ступенчатая", ActivationFucntion.step);
-        }
-
-        private void _fillAFDictByDefault()
-        {
-            foreach (var aFEnum in _aFHumanMachineRelDict.Values)
-            {
-                defaultAFDict.Add(aFEnum, new ActivationFunctionModel(0.5, 0.5, aFEnum));
-            }
         }
 
         private void DataGridView1_UserDeletedRow(object sender, DataGridViewRowEventArgs e)
@@ -124,11 +113,15 @@ namespace V_1._2
             {
                 dataGridView1.Rows[i].Cells["layerNumberColumn"].Value = i + 1;
             }
-
         }
 
         private void _createHidenNueronsModel(DataGridViewRowCollection rows)
         {
+
+            if (rows[0].Cells["layerNeuronCount"].Value == null) 
+            {
+                return;
+            }
             
             string res = "[";
 
@@ -143,13 +136,10 @@ namespace V_1._2
                 }
             }
 
-
-
             res += rows[rows.Count - d].Cells["layerNeuronCount"].Value;
             res += "]";
 
             neuronNodel = res;
-
         }
 
         private void DataGridView1_UserAddedRow(object sender, DataGridViewRowEventArgs e)
@@ -159,9 +149,14 @@ namespace V_1._2
             {
                 //MessageBox.Show("Не более 10 скрытых слоев.");
                 dataGridView1.AllowUserToAddRows = false;
+                return;
                 //dataGridView1.Rows.RemoveAt(11);
             }
 
+            // При добавлении строки в таблицу добавить модель активационной функции по умолчанию
+            // далее при нажатии на кнопку настроить модель обновляется в соотвествии с данными пользователя
+
+            _activationFunctionModelList.Add(new ActivationFunctionModel());
 
         }
 
@@ -183,7 +178,41 @@ namespace V_1._2
 
         private void dataGridView1_CellContentClick(object sender, DataGridViewCellEventArgs e)
         {
-            
+            if (e.RowIndex >= 0 && e.ColumnIndex >= 0)
+            {
+                DataGridViewButtonCell buttonCell = dataGridView1.Rows[e.RowIndex].Cells[e.ColumnIndex] as DataGridViewButtonCell;
+                var ncv = dataGridView1.Rows[e.RowIndex].Cells[1].Value;
+                var afv = dataGridView1.Rows[e.RowIndex].Cells[2].Value;
+
+
+                if (buttonCell != null && ncv != null && afv != null)
+                {
+                    //MessageBox.Show("Настройка функции");
+
+                    _updateAFModel();
+                    _showFunctionByModelIndex(e.RowIndex);
+
+                }
+            }
+        }
+
+        private void _showFunctionByModelIndex(int rowIndex)
+        {
+            // На вход индекс строки, на выход - отобразить 
+
+            activationFunctionForm.Show();
+        }
+
+        private void _updateAFModel()
+        {
+            for (int i = 0; i < dataGridView1.Rows.Count-1; i++)
+            {
+                // Элемент с данным индексом гарантирован.
+
+                var fn = (string)dataGridView1.Rows[i].Cells[2].Value;
+
+                _activationFunctionModelList[i].activationFucntion = HidenLayersSettings._aFHumanMachineRelDict[fn];
+            }
         }
 
         private void button1_Click(object sender, EventArgs e)
@@ -197,12 +226,96 @@ namespace V_1._2
 
         private void button3_Click(object sender, EventArgs e)
         {
+            DialogResult result = MessageBox.Show("Сброс всех настроек - необратимая операция с потерей данных о структуре скрытых слоев. Продолжить?", "Внимание", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
 
+            if (result == DialogResult.No)
+            {
+                return;
+            }
+
+            dataGridView1.Rows.Clear();
         }
 
         private void button2_Click(object sender, EventArgs e)
         {
-            // заполнить только один скрытый слой тремя нейронами с сигмоидой
+
+            DialogResult result = MessageBox.Show("Установка по умолчанию - необратимая операция с потерей данных о структуре скрытых слоев. Продолжить?", "Внимание", MessageBoxButtons.YesNo, MessageBoxIcon.Question);
+
+            if (result == DialogResult.No)
+            {
+                return;
+            }
+
+            dataGridView1.Rows.Clear();
+
+            dataGridView1.Rows.Add();
+
+            dataGridView1.Rows[0].Cells["layerNeuronCount"].Value = "1";
+            dataGridView1.Rows[0].Cells["activationFunction"].Value = HidenLayersSettings._aFHumanMachineRelDict.Keys.ToList()[7];
+
+            //DataGridViewComboBoxCell tst = (DataGridViewComboBoxCell)dataGridView1.Rows[0].Cells["activationFunction"];
+
+
+            dataGridView1.AllowUserToAddRows = true;
         }
+    }
+
+
+    public static class HidenLayersSettings
+    {
+
+        public delegate double ActivationFunctionDelegate(double a, double e, double x);
+
+        public enum ActivationFucntion
+        {
+            sigmoid,
+            tanh,
+            ReLU,
+            leakyReLU,
+            ELU,
+            smoothReLU,
+            softsign,
+            step
+        };
+
+        public static Dictionary<string, ActivationFucntion> _aFHumanMachineRelDict = new Dictionary<string, ActivationFucntion>
+        {
+            {"сигмоид",ActivationFucntion.sigmoid },
+            {"гиперболический тангенс", ActivationFucntion.tanh},
+            {"ReLU", ActivationFucntion.ReLU},
+            {"leaky ReLU", ActivationFucntion.leakyReLU},
+            {"ELU", ActivationFucntion.ELU},
+            {"SmoothReLU", ActivationFucntion.smoothReLU},
+            {"softsign", ActivationFucntion.softsign},
+            {"ступенчатая", ActivationFucntion.step}
+        };
+
+        public static Dictionary<ActivationFucntion, ActivationFunctionDelegate> _aFCalculateRelDict = new Dictionary<ActivationFucntion, ActivationFunctionDelegate>
+        {
+            {ActivationFucntion.sigmoid, sigmoid},
+            {ActivationFucntion.tanh,tanh},
+            {ActivationFucntion.ReLU,ReLU}
+            //{ActivationFucntion.leakyReLU},
+            //{ActivationFucntion.ELU},
+            //{ActivationFucntion.smoothReLU},
+            //{ActivationFucntion.softsign},
+            //{ActivationFucntion.step}
+        };
+
+        public static double sigmoid(double a, double e, double x)
+        {
+            return 1 / (1 + a * Math.Pow(Math.E, -x));
+        }
+
+        public static double tanh(double a, double e, double x)
+        {
+            return (Math.Pow(Math.E, 2 * x) - 1) / (Math.Pow(Math.E, 2 * x) + 1);
+        }
+
+        public static double ReLU(double a, double e, double x)
+        {
+            return x > 0 ? x : 0;
+        }
+
     }
 }
