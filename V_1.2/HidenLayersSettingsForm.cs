@@ -13,6 +13,7 @@ namespace V_1._2
     public partial class HidenLayersSettingsForm : Form
     {
         private int _currentRowIndex = 0;
+        private int _currentRowShownIndex = 0;
 
         public delegate void ApplyDelegate();
 
@@ -48,27 +49,7 @@ namespace V_1._2
 
         private ActivationFunctionForm activationFunctionForm;
 
-        protected class ActivationFunctionModel
-        {
-            public double e;
-            public double a;
-            public HidenLayersSettings.ActivationFucntion activationFucntion;
 
-            public ActivationFunctionModel(double e, double a, HidenLayersSettings.ActivationFucntion activationFucntion) 
-            {
-                this.a = a;
-                this.e = e;
-                this.activationFucntion = activationFucntion;
-            }
-
-            public ActivationFunctionModel() 
-            {
-                this.a = 0.5;
-                this.e = 0.5;
-                this.activationFucntion = HidenLayersSettings.ActivationFucntion.sigmoid;
-            }
-
-        }
         public HidenLayersSettingsForm()
         {
             InitializeComponent();
@@ -80,6 +61,9 @@ namespace V_1._2
 
             activationFunctionForm = new ActivationFunctionForm();
 
+            activationFunctionForm.HasAppliedFunctionChanges += ActivationFunctionForm_HasAppliedFunctionChanges;
+
+
             dataGridView1.CellBeginEdit += DataGridView1_CellBeginEdit;
 
             dataGridView1.UserAddedRow += DataGridView1_UserAddedRow;
@@ -89,6 +73,23 @@ namespace V_1._2
 
             dataGridView1.Rows.CollectionChanged += Rows_CollectionChanged;
 
+        }
+
+        private void ActivationFunctionForm_HasAppliedFunctionChanges(ActivationFunctionModel activationFunctionModel)
+        {
+            _activationFunctionModelList[_currentRowShownIndex] = activationFunctionModel;
+
+            _updateDataGridByModel();
+            // обновить таблицу datagridview
+
+        }
+
+        private void _updateDataGridByModel()
+        {
+            for (int i = 0; i < dataGridView1.Rows.Count-1; i++)
+            {
+                dataGridView1.Rows[i].Cells["activationFunction"].Value = HidenLayersSettings._aFHumanMachineRelDict.FirstOrDefault(af => af.Value == _activationFunctionModelList[i].activationFucntion).Key; 
+            }
         }
 
         private void DataGridView1_CellValueChanged(object sender, DataGridViewCellEventArgs e)
@@ -200,7 +201,9 @@ namespace V_1._2
         {
             // На вход индекс строки, на выход - отобразить 
 
-            activationFunctionForm.Show();
+            _currentRowShownIndex = rowIndex;
+
+            activationFunctionForm.Show(_activationFunctionModelList[rowIndex]);
         }
 
         private void _updateAFModel()
@@ -260,6 +263,27 @@ namespace V_1._2
         }
     }
 
+    public class ActivationFunctionModel
+    {
+        public double e;
+        public double a;
+        public HidenLayersSettings.ActivationFucntion activationFucntion;
+
+        public ActivationFunctionModel(double e, double a, HidenLayersSettings.ActivationFucntion activationFucntion)
+        {
+            this.a = a;
+            this.e = e;
+            this.activationFucntion = activationFucntion;
+        }
+
+        public ActivationFunctionModel()
+        {
+            this.a = 0.5;
+            this.e = 0.5;
+            this.activationFucntion = HidenLayersSettings.ActivationFucntion.sigmoid;
+        }
+
+    }
 
     public static class HidenLayersSettings
     {
