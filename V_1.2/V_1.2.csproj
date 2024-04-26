@@ -167,11 +167,29 @@
     <Compile Include="ANNForm.Designer.cs">
       <DependentUpon>ANNForm.cs</DependentUpon>
     </Compile>
+    <Compile Include="ANNKindChoisingForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="ANNKindChoisingForm.Designer.cs">
+      <DependentUpon>ANNKindChoisingForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="AugmentationForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="AugmentationForm.Designer.cs">
+      <DependentUpon>AugmentationForm.cs</DependentUpon>
+    </Compile>
     <Compile Include="Form1.cs">
       <SubType>Form</SubType>
     </Compile>
     <Compile Include="Form1.Designer.cs">
       <DependentUpon>Form1.cs</DependentUpon>
+    </Compile>
+    <Compile Include="FunctionGraphicsForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="FunctionGraphicsForm.Designer.cs">
+      <DependentUpon>FunctionGraphicsForm.cs</DependentUpon>
     </Compile>
     <Compile Include="HidenLayersSettingsForm.cs">
       <SubType>Form</SubType>
@@ -190,6 +208,18 @@
     </Compile>
     <Compile Include="KnowledgeTestProtocol.Designer.cs">
       <DependentUpon>KnowledgeTestProtocol.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MLParametersForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MLParametersForm.Designer.cs">
+      <DependentUpon>MLParametersForm.cs</DependentUpon>
+    </Compile>
+    <Compile Include="MLStartForm.cs">
+      <SubType>Form</SubType>
+    </Compile>
+    <Compile Include="MLStartForm.Designer.cs">
+      <DependentUpon>MLStartForm.cs</DependentUpon>
     </Compile>
     <Compile Include="ModeChoosingStartForm.cs">
       <SubType>Form</SubType>
@@ -223,6 +253,12 @@
     <EmbeddedResource Include="ANNForm.resx">
       <DependentUpon>ANNForm.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="ANNKindChoisingForm.resx">
+      <DependentUpon>ANNKindChoisingForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="AugmentationForm.resx">
+      <DependentUpon>AugmentationForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="Form1.lkt-US.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
@@ -232,6 +268,9 @@
     <EmbeddedResource Include="Form1.ru.resx">
       <DependentUpon>Form1.cs</DependentUpon>
     </EmbeddedResource>
+    <EmbeddedResource Include="FunctionGraphicsForm.resx">
+      <DependentUpon>FunctionGraphicsForm.cs</DependentUpon>
+    </EmbeddedResource>
     <EmbeddedResource Include="HidenLayersSettingsForm.resx">
       <DependentUpon>HidenLayersSettingsForm.cs</DependentUpon>
     </EmbeddedResource>
@@ -240,6 +279,12 @@
     </EmbeddedResource>
     <EmbeddedResource Include="KnowledgeTestProtocol.resx">
       <DependentUpon>KnowledgeTestProtocol.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MLParametersForm.resx">
+      <DependentUpon>MLParametersForm.cs</DependentUpon>
+    </EmbeddedResource>
+    <EmbeddedResource Include="MLStartForm.resx">
+      <DependentUpon>MLStartForm.cs</DependentUpon>
     </EmbeddedResource>
     <EmbeddedResource Include="ModeChoosingStartForm.resx">
       <DependentUpon>ModeChoosingStartForm.cs</DependentUpon>

@@ -39,6 +39,7 @@ namespace V_1._2
             this.textBox1 = new System.Windows.Forms.TextBox();
             this.checkButton = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
+            this.button3 = new System.Windows.Forms.Button();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
             this.panel1 = new System.Windows.Forms.Panel();
             this.tableLayoutPanel2.SuspendLayout();
@@ -51,7 +52,7 @@ namespace V_1._2
             // 
             this.tableLayoutPanel2.ColumnCount = 2;
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 100F));
+            this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 120F));
             this.tableLayoutPanel2.Controls.Add(this.button1, 1, 2);
             this.tableLayoutPanel2.Controls.Add(this.label2, 0, 1);
             this.tableLayoutPanel2.Controls.Add(this.numericUpDown2, 1, 1);
@@ -61,26 +62,27 @@ namespace V_1._2
             this.tableLayoutPanel2.Controls.Add(this.textBox1, 0, 5);
             this.tableLayoutPanel2.Controls.Add(this.checkButton, 1, 5);
             this.tableLayoutPanel2.Controls.Add(this.button2, 1, 3);
+            this.tableLayoutPanel2.Controls.Add(this.button3, 1, 6);
             this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
             this.tableLayoutPanel2.Location = new System.Drawing.Point(3, 3);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
-            this.tableLayoutPanel2.RowCount = 6;
+            this.tableLayoutPanel2.RowCount = 7;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 35F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 35F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 35F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 35F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 35F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
-            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
+            this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 35F));
             this.tableLayoutPanel2.Size = new System.Drawing.Size(344, 781);
             this.tableLayoutPanel2.TabIndex = 0;
             // 
             // button1
             // 
             this.button1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.button1.Location = new System.Drawing.Point(247, 73);
+            this.button1.Location = new System.Drawing.Point(227, 73);
             this.button1.Name = "button1";
-            this.button1.Size = new System.Drawing.Size(94, 29);
+            this.button1.Size = new System.Drawing.Size(114, 29);
             this.button1.TabIndex = 10;
             this.button1.Text = "Изменить";
             this.button1.UseVisualStyleBackColor = true;
@@ -93,14 +95,14 @@ namespace V_1._2
             this.label2.Location = new System.Drawing.Point(10, 43);
             this.label2.Margin = new System.Windows.Forms.Padding(10, 8, 3, 0);
             this.label2.Name = "label2";
-            this.label2.Size = new System.Drawing.Size(231, 27);
+            this.label2.Size = new System.Drawing.Size(211, 27);
             this.label2.TabIndex = 3;
             this.label2.Text = "Выходных нейронов";
             // 
             // numericUpDown2
             // 
             this.numericUpDown2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.numericUpDown2.Location = new System.Drawing.Point(247, 43);
+            this.numericUpDown2.Location = new System.Drawing.Point(227, 43);
             this.numericUpDown2.Margin = new System.Windows.Forms.Padding(3, 8, 3, 3);
             this.numericUpDown2.Maximum = new decimal(new int[] {
             10,
@@ -113,7 +115,7 @@ namespace V_1._2
             0,
             0});
             this.numericUpDown2.Name = "numericUpDown2";
-            this.numericUpDown2.Size = new System.Drawing.Size(94, 22);
+            this.numericUpDown2.Size = new System.Drawing.Size(114, 22);
             this.numericUpDown2.TabIndex = 4;
             this.numericUpDown2.Value = new decimal(new int[] {
             1,
@@ -129,14 +131,14 @@ namespace V_1._2
             this.label1.Location = new System.Drawing.Point(10, 8);
             this.label1.Margin = new System.Windows.Forms.Padding(10, 8, 3, 0);
             this.label1.Name = "label1";
-            this.label1.Size = new System.Drawing.Size(231, 27);
+            this.label1.Size = new System.Drawing.Size(211, 27);
             this.label1.TabIndex = 0;
             this.label1.Text = "Входных нейронов";
             // 
             // numericUpDown1
             // 
             this.numericUpDown1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.numericUpDown1.Location = new System.Drawing.Point(247, 8);
+            this.numericUpDown1.Location = new System.Drawing.Point(227, 8);
             this.numericUpDown1.Margin = new System.Windows.Forms.Padding(3, 8, 3, 3);
             this.numericUpDown1.Maximum = new decimal(new int[] {
             10,
@@ -149,7 +151,7 @@ namespace V_1._2
             0,
             0});
             this.numericUpDown1.Name = "numericUpDown1";
-            this.numericUpDown1.Size = new System.Drawing.Size(94, 22);
+            this.numericUpDown1.Size = new System.Drawing.Size(114, 22);
             this.numericUpDown1.TabIndex = 2;
             this.numericUpDown1.Value = new decimal(new int[] {
             1,
@@ -165,7 +167,7 @@ namespace V_1._2
             this.label5.Location = new System.Drawing.Point(10, 78);
             this.label5.Margin = new System.Windows.Forms.Padding(10, 8, 3, 0);
             this.label5.Name = "label5";
-            this.label5.Size = new System.Drawing.Size(231, 27);
+            this.label5.Size = new System.Drawing.Size(211, 27);
             this.label5.TabIndex = 7;
             this.label5.Text = "Скрытые слои";
             // 
@@ -173,15 +175,15 @@ namespace V_1._2
             // 
             this.textBox1.Location = new System.Drawing.Point(3, 178);
             this.textBox1.Name = "textBox1";
-            this.textBox1.Size = new System.Drawing.Size(238, 22);
+            this.textBox1.Size = new System.Drawing.Size(218, 22);
             this.textBox1.TabIndex = 11;
             this.textBox1.Visible = false;
             // 
             // checkButton
             // 
-            this.checkButton.Location = new System.Drawing.Point(247, 178);
+            this.checkButton.Location = new System.Drawing.Point(227, 178);
             this.checkButton.Name = "checkButton";
-            this.checkButton.Size = new System.Drawing.Size(94, 60);
+            this.checkButton.Size = new System.Drawing.Size(114, 60);
             this.checkButton.TabIndex = 12;
             this.checkButton.Text = "Проверить";
             this.checkButton.UseVisualStyleBackColor = true;
@@ -191,13 +193,24 @@ namespace V_1._2
             // button2
             // 
             this.button2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.button2.Location = new System.Drawing.Point(247, 108);
+            this.button2.Location = new System.Drawing.Point(227, 108);
             this.button2.Name = "button2";
-            this.button2.Size = new System.Drawing.Size(94, 29);
+            this.button2.Size = new System.Drawing.Size(114, 29);
             this.button2.TabIndex = 13;
             this.button2.Text = "Создать";
             this.button2.UseVisualStyleBackColor = true;
             this.button2.Click += new System.EventHandler(this.button2_Click_1);
+            // 
+            // button3
+            // 
+            this.button3.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.button3.Location = new System.Drawing.Point(227, 749);
+            this.button3.Name = "button3";
+            this.button3.Size = new System.Drawing.Size(114, 29);
+            this.button3.TabIndex = 14;
+            this.button3.Text = "Применить";
+            this.button3.UseVisualStyleBackColor = true;
+            this.button3.Click += new System.EventHandler(this.button3_Click);
             // 
             // tableLayoutPanel1
             // 
@@ -254,5 +267,6 @@ namespace V_1._2
         private System.Windows.Forms.Button checkButton;
         private System.Windows.Forms.Button button1;
         private System.Windows.Forms.Button button2;
+        private System.Windows.Forms.Button button3;
     }
 }

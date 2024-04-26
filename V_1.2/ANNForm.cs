@@ -119,5 +119,10 @@ namespace V_1._2
 
             c_br.LoadUrl(graphUrl);
         }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            Hide();
+        }
     }
 }

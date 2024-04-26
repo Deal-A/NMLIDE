@@ -81,17 +81,21 @@ namespace V_1._2
         {
             _activationFunctionModelList[_currentRowShownIndex] = activationFunctionModel;
 
-            _updateDataGridByModel();
+            _updateDataGridCellByModel(_currentRowShownIndex);
             // обновить таблицу datagridview
 
         }
 
-        private void _updateDataGridByModel()
+        private void _updateDataGridCellByModel(int index)
         {
-            for (int i = 0; i < dataGridView1.Rows.Count-1; i++)
-            {
-                dataGridView1.Rows[i].Cells["activationFunction"].Value = HidenLayersSettings._aFHumanMachineRelDict.FirstOrDefault(af => af.Value == _activationFunctionModelList[i].activationFucntion).Key; 
-            }
+            //for (int i = 0; i < dataGridView1.Rows.Count-1; i++)
+            //{
+                //if (null == dataGridView1.Rows[i].Cells["activationFunction"].Value) 
+                //{
+
+                //}
+                dataGridView1.Rows[index].Cells["activationFunction"].Value = HidenLayersSettings._aFHumanMachineRelDict.FirstOrDefault(af => af.Value == _activationFunctionModelList[index].activationFucntion).Key; 
+            //}
         }
 
         private void DataGridView1_CellValueChanged(object sender, DataGridViewCellEventArgs e)
@@ -188,7 +192,7 @@ namespace V_1._2
                 var afv = dataGridView1.Rows[e.RowIndex].Cells[2].Value;
 
 
-                if (buttonCell != null && ncv != null && afv != null)
+                if (buttonCell != null && (ncv != null || afv != null))
                 {
                     //MessageBox.Show("Настройка функции");
 
@@ -214,7 +218,12 @@ namespace V_1._2
             {
                 // Элемент с данным индексом гарантирован.
 
-                var fn = (string)dataGridView1.Rows[i].Cells[2].Value;
+                var fn = (string)dataGridView1.Rows[i].Cells["activationFunction"].Value;
+
+                if (null == fn) 
+                {
+                    continue;
+                }
 
                 _activationFunctionModelList[i].activationFucntion = HidenLayersSettings._aFHumanMachineRelDict[fn];
             }
@@ -224,9 +233,35 @@ namespace V_1._2
         {
             // Поднять событие применения
             // Сформировать подстроку из массива для файла пример "[3,7,5]" 
+
+            if (_hasDataGridNullCells()) 
+            {
+                MessageBox.Show("Каждый слой описывается количеством нейронов и функцией актиации. Не все слои правильно заданы.");
+                return;
+            }
+            
             _createHidenNueronsModel(dataGridView1.Rows);
+
+
             HasApplied();
             Hide();
+        }
+
+        private bool _hasDataGridNullCells()
+        {
+            var result = true;
+
+            for (int i = 0; i < dataGridView1.Rows.Count-1; i++)
+            {
+                var lnc = dataGridView1.Rows[i].Cells["layerNeuronCount"].Value;
+                var af = dataGridView1.Rows[i].Cells["activationFunction"].Value;
+                if (null == lnc || null == af) 
+                {
+                    return result;
+                }
+            }
+
+            return false;
         }
 
         private void button3_Click(object sender, EventArgs e)
@@ -238,7 +273,12 @@ namespace V_1._2
                 return;
             }
 
+            _updateAFModel();
+
             dataGridView1.Rows.Clear();
+
+
+            dataGridView1.AllowUserToAddRows = true;
         }
 
         private void button2_Click(object sender, EventArgs e)
@@ -260,6 +300,7 @@ namespace V_1._2
 
             //DataGridViewComboBoxCell tst = (DataGridViewComboBoxCell)dataGridView1.Rows[0].Cells["activationFunction"];
 
+            _updateAFModel();
 
             dataGridView1.AllowUserToAddRows = true;
         }
@@ -367,6 +408,18 @@ namespace V_1._2
             {ActivationFucntion.smoothReLU, smoothReLU},
             {ActivationFucntion.softsign,softSign},
             {ActivationFucntion.step,step}
+        };
+
+        public static Dictionary<ActivationFucntion, bool> aFHasParams = new Dictionary<ActivationFucntion, bool>
+        {
+            {ActivationFucntion.sigmoid, true},
+            {ActivationFucntion.tanh, false},
+            {ActivationFucntion.ReLU,false },
+            {ActivationFucntion.leakyReLU, true},
+            {ActivationFucntion.ELU, true},
+            {ActivationFucntion.smoothReLU, false},
+            {ActivationFucntion.softsign,false},
+            {ActivationFucntion.step,false}
         };
 
         public static double sigmoid(double a, double e, double x)

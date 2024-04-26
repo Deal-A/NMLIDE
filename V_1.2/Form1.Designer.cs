@@ -35,28 +35,28 @@ namespace V_1._2
             this.toolStripMenuItem3 = new System.Windows.Forms.ToolStripMenuItem();
             this.открытьToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.сохранитьToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
+            this.toolStripMenuItem4 = new System.Windows.Forms.ToolStripMenuItem();
             this.выходToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.дейсвтиеToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.загрузитьВыборкуToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem6 = new System.Windows.Forms.ToolStripMenuItem();
             this.выборИНСToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem5 = new System.Windows.Forms.ToolStripMenuItem();
             this.параметрыОбученияToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.графикиФункцийToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.обучениеНачатьToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.результатыОбученияToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.проверкаНаТестовойВыборкеToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.протоколToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.листингНаPythonToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
             this.помощьToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
+            this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
             this.помощьToolStripMenuItem1 = new System.Windows.Forms.ToolStripMenuItem();
             this.stageControlPanel = new System.Windows.Forms.Panel();
-            this.backButton = new System.Windows.Forms.Button();
-            this.nextButton = new System.Windows.Forms.Button();
             this.promptButton = new System.Windows.Forms.Button();
-            this.toolStripSeparator1 = new System.Windows.Forms.ToolStripSeparator();
-            this.toolStripMenuItem4 = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItem5 = new System.Windows.Forms.ToolStripMenuItem();
-            this.листингНаPythonToolStripMenuItem = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItem6 = new System.Windows.Forms.ToolStripMenuItem();
-            this.toolStripMenuItem2 = new System.Windows.Forms.ToolStripMenuItem();
+            this.nextButton = new System.Windows.Forms.Button();
+            this.backButton = new System.Windows.Forms.Button();
             this.menuStrip1.SuspendLayout();
             this.stageControlPanel.SuspendLayout();
             this.SuspendLayout();
@@ -102,6 +102,17 @@ namespace V_1._2
             this.сохранитьToolStripMenuItem.Name = "сохранитьToolStripMenuItem";
             resources.ApplyResources(this.сохранитьToolStripMenuItem, "сохранитьToolStripMenuItem");
             // 
+            // toolStripSeparator1
+            // 
+            this.toolStripSeparator1.Name = "toolStripSeparator1";
+            resources.ApplyResources(this.toolStripSeparator1, "toolStripSeparator1");
+            // 
+            // toolStripMenuItem4
+            // 
+            this.toolStripMenuItem4.Name = "toolStripMenuItem4";
+            resources.ApplyResources(this.toolStripMenuItem4, "toolStripMenuItem4");
+            this.toolStripMenuItem4.Click += new System.EventHandler(this.toolStripMenuItem4_Click_1);
+            // 
             // выходToolStripMenuItem
             // 
             this.выходToolStripMenuItem.Name = "выходToolStripMenuItem";
@@ -123,6 +134,7 @@ namespace V_1._2
             this.листингНаPythonToolStripMenuItem});
             this.дейсвтиеToolStripMenuItem.Name = "дейсвтиеToolStripMenuItem";
             resources.ApplyResources(this.дейсвтиеToolStripMenuItem, "дейсвтиеToolStripMenuItem");
+            this.дейсвтиеToolStripMenuItem.Click += new System.EventHandler(this.дейсвтиеToolStripMenuItem_Click);
             // 
             // загрузитьВыборкуToolStripMenuItem
             // 
@@ -130,25 +142,41 @@ namespace V_1._2
             resources.ApplyResources(this.загрузитьВыборкуToolStripMenuItem, "загрузитьВыборкуToolStripMenuItem");
             this.загрузитьВыборкуToolStripMenuItem.Click += new System.EventHandler(this.загрузитьВыборкуToolStripMenuItem_Click);
             // 
+            // toolStripMenuItem6
+            // 
+            this.toolStripMenuItem6.Name = "toolStripMenuItem6";
+            resources.ApplyResources(this.toolStripMenuItem6, "toolStripMenuItem6");
+            this.toolStripMenuItem6.Click += new System.EventHandler(this.toolStripMenuItem6_Click);
+            // 
             // выборИНСToolStripMenuItem
             // 
             this.выборИНСToolStripMenuItem.Name = "выборИНСToolStripMenuItem";
             resources.ApplyResources(this.выборИНСToolStripMenuItem, "выборИНСToolStripMenuItem");
+            this.выборИНСToolStripMenuItem.Click += new System.EventHandler(this.выборИНСToolStripMenuItem_Click);
+            // 
+            // toolStripMenuItem5
+            // 
+            this.toolStripMenuItem5.Name = "toolStripMenuItem5";
+            resources.ApplyResources(this.toolStripMenuItem5, "toolStripMenuItem5");
+            this.toolStripMenuItem5.Click += new System.EventHandler(this.toolStripMenuItem5_Click);
             // 
             // параметрыОбученияToolStripMenuItem
             // 
             this.параметрыОбученияToolStripMenuItem.Name = "параметрыОбученияToolStripMenuItem";
             resources.ApplyResources(this.параметрыОбученияToolStripMenuItem, "параметрыОбученияToolStripMenuItem");
+            this.параметрыОбученияToolStripMenuItem.Click += new System.EventHandler(this.параметрыОбученияToolStripMenuItem_Click);
             // 
             // графикиФункцийToolStripMenuItem
             // 
             this.графикиФункцийToolStripMenuItem.Name = "графикиФункцийToolStripMenuItem";
             resources.ApplyResources(this.графикиФункцийToolStripMenuItem, "графикиФункцийToolStripMenuItem");
+            this.графикиФункцийToolStripMenuItem.Click += new System.EventHandler(this.графикиФункцийToolStripMenuItem_Click);
             // 
             // обучениеНачатьToolStripMenuItem
             // 
             this.обучениеНачатьToolStripMenuItem.Name = "обучениеНачатьToolStripMenuItem";
             resources.ApplyResources(this.обучениеНачатьToolStripMenuItem, "обучениеНачатьToolStripMenuItem");
+            this.обучениеНачатьToolStripMenuItem.Click += new System.EventHandler(this.обучениеНачатьToolStripMenuItem_Click);
             // 
             // результатыОбученияToolStripMenuItem
             // 
@@ -165,11 +193,21 @@ namespace V_1._2
             this.протоколToolStripMenuItem.Name = "протоколToolStripMenuItem";
             resources.ApplyResources(this.протоколToolStripMenuItem, "протоколToolStripMenuItem");
             // 
+            // листингНаPythonToolStripMenuItem
+            // 
+            this.листингНаPythonToolStripMenuItem.Name = "листингНаPythonToolStripMenuItem";
+            resources.ApplyResources(this.листингНаPythonToolStripMenuItem, "листингНаPythonToolStripMenuItem");
+            // 
             // помощьToolStripMenuItem
             // 
             this.помощьToolStripMenuItem.Name = "помощьToolStripMenuItem";
             resources.ApplyResources(this.помощьToolStripMenuItem, "помощьToolStripMenuItem");
             this.помощьToolStripMenuItem.Click += new System.EventHandler(this.помощьToolStripMenuItem_Click);
+            // 
+            // toolStripMenuItem2
+            // 
+            this.toolStripMenuItem2.Name = "toolStripMenuItem2";
+            resources.ApplyResources(this.toolStripMenuItem2, "toolStripMenuItem2");
             // 
             // помощьToolStripMenuItem1
             // 
@@ -185,18 +223,6 @@ namespace V_1._2
             this.stageControlPanel.Controls.Add(this.backButton);
             this.stageControlPanel.Name = "stageControlPanel";
             // 
-            // backButton
-            // 
-            resources.ApplyResources(this.backButton, "backButton");
-            this.backButton.Name = "backButton";
-            this.backButton.UseVisualStyleBackColor = true;
-            // 
-            // nextButton
-            // 
-            resources.ApplyResources(this.nextButton, "nextButton");
-            this.nextButton.Name = "nextButton";
-            this.nextButton.UseVisualStyleBackColor = true;
-            // 
             // promptButton
             // 
             resources.ApplyResources(this.promptButton, "promptButton");
@@ -204,37 +230,17 @@ namespace V_1._2
             this.promptButton.UseVisualStyleBackColor = true;
             this.promptButton.Click += new System.EventHandler(this.promptButton_Click);
             // 
-            // toolStripSeparator1
+            // nextButton
             // 
-            this.toolStripSeparator1.Name = "toolStripSeparator1";
-            resources.ApplyResources(this.toolStripSeparator1, "toolStripSeparator1");
+            resources.ApplyResources(this.nextButton, "nextButton");
+            this.nextButton.Name = "nextButton";
+            this.nextButton.UseVisualStyleBackColor = true;
             // 
-            // toolStripMenuItem4
+            // backButton
             // 
-            this.toolStripMenuItem4.Name = "toolStripMenuItem4";
-            resources.ApplyResources(this.toolStripMenuItem4, "toolStripMenuItem4");
-            this.toolStripMenuItem4.Click += new System.EventHandler(this.toolStripMenuItem4_Click_1);
-            // 
-            // toolStripMenuItem5
-            // 
-            this.toolStripMenuItem5.Name = "toolStripMenuItem5";
-            resources.ApplyResources(this.toolStripMenuItem5, "toolStripMenuItem5");
-            this.toolStripMenuItem5.Click += new System.EventHandler(this.toolStripMenuItem5_Click);
-            // 
-            // листингНаPythonToolStripMenuItem
-            // 
-            this.листингНаPythonToolStripMenuItem.Name = "листингНаPythonToolStripMenuItem";
-            resources.ApplyResources(this.листингНаPythonToolStripMenuItem, "листингНаPythonToolStripMenuItem");
-            // 
-            // toolStripMenuItem6
-            // 
-            this.toolStripMenuItem6.Name = "toolStripMenuItem6";
-            resources.ApplyResources(this.toolStripMenuItem6, "toolStripMenuItem6");
-            // 
-            // toolStripMenuItem2
-            // 
-            this.toolStripMenuItem2.Name = "toolStripMenuItem2";
-            resources.ApplyResources(this.toolStripMenuItem2, "toolStripMenuItem2");
+            resources.ApplyResources(this.backButton, "backButton");
+            this.backButton.Name = "backButton";
+            this.backButton.UseVisualStyleBackColor = true;
             // 
             // MainForm
             // 

@@ -40,7 +40,17 @@ namespace V_1._2
 
             textBox1.Text = _curFModel.a.ToString();
 
+            _updateControls();
+
+
             Show();
+        }
+
+        private void _updateControls()
+        {
+            textBox1.Visible = HidenLayersSettings.aFHasParams[_curFModel.activationFucntion];
+            label1.Visible = HidenLayersSettings.aFHasParams[_curFModel.activationFucntion];
+
         }
 
         protected override void OnFormClosing(FormClosingEventArgs e)
@@ -89,6 +99,8 @@ namespace V_1._2
         {
             _curFModel.activationFucntion = HidenLayersSettings._aFHumanMachineRelDict[comboBox1.Text];
 
+            _updateControls();
+
             double a = -11, b = 11, h = 0.05, x, y;
 
             double.TryParse(textBox2.Text, out h);
@@ -118,7 +130,6 @@ namespace V_1._2
                 return;
             }
 
-
             while (x <= b)
             {
                 y = func(_curFModel.a, _curFModel.e, x);
@@ -130,7 +141,6 @@ namespace V_1._2
 
         private void button1_Click(object sender, EventArgs e)
         {
-
             HasAppliedFunctionChanges(_curFModel);
             Hide();
         }

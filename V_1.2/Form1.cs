@@ -16,6 +16,12 @@ namespace V_1._2
         private KnowledgeTesting KnowledgeTesting;
         private TrainingSampleForm TrainingSampleForm;
         private ANNForm ANNForm;
+        private AugmentationForm augmentationForm;
+        private ANNKindChoisingForm aNNKindChoisingForm;
+        private MLParametersForm mLParametersForm;
+        private FunctionGraphicsForm functionGraphicsForm;
+        private MLStartForm mLStartForm;
+
 
         public MainForm()
         {
@@ -25,19 +31,9 @@ namespace V_1._2
         private void Form1_Load(object sender, EventArgs e)
         {
             _addWidnows();
-            ModeChoosingStartForm = new ModeChoosingStartForm();
-
-
-            ModeChoosingStartForm.Show();
-
-            ModeChoosingStartForm.LearnModeClick += LearnModeOpenMainForm;
-            ModeChoosingStartForm.ExperimentModeClick += ExperimentModeOpenMainForm;
-            ModeChoosingStartForm.ModelingModeClick += ModelingModeOpenMainForm;
 
             // При запуске прячет главную форму, чтобы показать форму входа
             Shown += MainForm_Shown;
-
-            KnowledgeTesting.TestFinished += ChooseTrainDataStage;
 
         }
 
@@ -79,15 +75,35 @@ namespace V_1._2
         private void _addWidnows()
         {
             KnowledgeTesting = new KnowledgeTesting();
-         //   KnowledgeTesting.MdiParent = this;
             KnowledgeTesting.Hide();
+            KnowledgeTesting.TestFinished += ChooseTrainDataStage;
 
             TrainingSampleForm = new TrainingSampleForm();
             TrainingSampleForm.Hide();
 
             ANNForm = new ANNForm();
-            ANNForm.Show();// Чтобы сразу прогрузить, затеб быстрее будет
+            ANNForm.Show();// Чтобы сразу прогрузить, затем быстрее будет
             ANNForm.Hide();
+
+            ModeChoosingStartForm = new ModeChoosingStartForm();
+            ModeChoosingStartForm.Show();
+            ModeChoosingStartForm.LearnModeClick += LearnModeOpenMainForm;
+            ModeChoosingStartForm.ExperimentModeClick += ExperimentModeOpenMainForm;
+            ModeChoosingStartForm.ModelingModeClick += ModelingModeOpenMainForm;
+
+            augmentationForm = new AugmentationForm();
+
+            aNNKindChoisingForm = new ANNKindChoisingForm();
+
+            mLParametersForm = new MLParametersForm();
+            mLParametersForm.Hide();
+
+            functionGraphicsForm = new FunctionGraphicsForm();
+            functionGraphicsForm.Hide();
+
+            mLStartForm = new MLStartForm();
+            mLStartForm.Hide();
+
         }
         private void simpleButton1_Click(object sender, EventArgs e)
         {
@@ -101,7 +117,7 @@ namespace V_1._2
 
         private void загрузитьВыборкуToolStripMenuItem_Click(object sender, EventArgs e)
         {
-            TrainingSampleForm.Show();
+            TrainingSampleForm.ShowDialog();
         }
 
         private void помощьToolStripMenuItem_Click(object sender, EventArgs e)
@@ -153,12 +169,43 @@ namespace V_1._2
             }
 
             loadAnnFormByModel();
-            ANNForm.Show();
+            ANNForm.ShowDialog();
         }
 
         private void loadAnnFormByModel()
         {
             
+        }
+
+        private void toolStripMenuItem6_Click(object sender, EventArgs e)
+        {
+            augmentationForm.ShowDialog();
+        }
+
+        private void выборИНСToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            aNNKindChoisingForm.ShowDialog();
+        }
+
+        private void дейсвтиеToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+
+        }
+
+        private void параметрыОбученияToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            mLParametersForm.Show();
+        }
+
+        private void графикиФункцийToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            functionGraphicsForm.ShowDialog();
+        }
+
+        private void обучениеНачатьToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            mLStartForm.ShowDialog();
+            functionGraphicsForm.ShowMLMode();
         }
     }
 }
