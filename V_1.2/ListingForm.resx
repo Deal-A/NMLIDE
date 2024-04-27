@@ -117,7 +117,37 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <metadata name="virtualServerModeSource1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>17, 17</value>
-  </metadata>
+  <data name="richTextBox1.Text" xml:space="preserve">
+    <value>import numpy as np
+from sklearn.neural_network import MLPRegressor
+from sklearn.datasets import make_regression
+from sklearn.model_selection import train_test_split
+from sklearn.preprocessing import StandardScaler
+
+# Создание набора данных для регрессии
+X, y = make_regression(n_samples=100, n_features=10, noise=10, random_state=42)
+
+# Разделение данных на обучающую и тестовую выборки
+X_train, X_test, y_train, y_test = train_test_split(X, y, test_size=0.2, random_state=42)
+
+# Стандартизация данных
+scaler = StandardScaler()
+X_train = scaler.fit_transform(X_train)
+X_test = scaler.transform(X_test)
+
+# Обучение модели
+regressor = MLPRegressor(hidden_layer_sizes=(10,), activation='relu', solver='adam', alpha=0.0001, max_iter=10000, random_state=42)
+regressor.fit(X_train, y_train)
+
+# Оценка модели на тестовых данных
+y_pred = regressor.predict(X_test)
+
+# Оценка качества модели
+print("Коэффициент детерминации:", regressor.score(X_test, y_test))
+#
+#Коэффициент детерминации (R^2) является мерой, которая показывает, насколько хорошо модель регрессии объясняет изменчивость данных. Он варьируется от 0 до 1, где 0 указывает на отсутствие зависимости между переменными, а 1 - на полную зависимость. Формула для вычисления R^2 выглядит следующим образом:
+#R^2 = 1 - (Остаточная сумма квадратов / Общая сумма квадратов)
+#Чем ближе значение R^2 к 1, тем лучше модель соответствует данным. Например, если R^2 равен 0.8, это означает, что 80% вариации зависимой переменной объясняется моделью.
+</value>
+  </data>
 </root>

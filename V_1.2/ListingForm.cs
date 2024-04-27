@@ -10,11 +10,16 @@ using System.Windows.Forms;
 
 namespace V_1._2
 {
-    public partial class MLParametersForm : Form
+    public partial class ListingForm : Form
     {
-        public MLParametersForm()
+
+        private CondaConfigForm condaConfigForm;
+        public ListingForm()
         {
             InitializeComponent();
+
+            condaConfigForm = new CondaConfigForm();
+            condaConfigForm.Hide();
         }
 
         protected override void OnClosing(CancelEventArgs e)
@@ -26,6 +31,16 @@ namespace V_1._2
         private void button1_Click(object sender, EventArgs e)
         {
             Hide();
+        }
+
+        private void button3_Click(object sender, EventArgs e)
+        {
+            condaConfigForm.Show();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

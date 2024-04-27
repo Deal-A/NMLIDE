@@ -117,7 +117,27 @@
   <resheader name="writer">
     <value>System.Resources.ResXResourceWriter, System.Windows.Forms, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b77a5c561934e089</value>
   </resheader>
-  <metadata name="virtualServerModeSource1.TrayLocation" type="System.Drawing.Point, System.Drawing, Version=4.0.0.0, Culture=neutral, PublicKeyToken=b03f5f7f11d50a3a">
-    <value>17, 17</value>
-  </metadata>
+  <data name="richTextBox1.Text" xml:space="preserve">
+    <value>Вид сети: многослойный персептрон
+структура сети:
+	входов : 3
+	выходов: 1
+	скрытые слои: [5,10,5,7,3]
+	активационые функции:
+		слой 1:
+			сигмоида 0,7
+		слой 2: 
+			ReLU
+		...
+
+Скорость обучения: 0,3
+Количество эпох: 1000
+Заданная величина ошибки MAE: 1
+Заданная величина ошибки MSE: 0,1
+Метод подбора весов нейронов: ОРО
+
+
+График изменения MAE:
+</value>
+  </data>
 </root>

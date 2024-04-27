@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace V_1._2
 {
-    public partial class MLParametersForm : Form
+    public partial class TestSampleValidationForm : Form
     {
-        public MLParametersForm()
+        public TestSampleValidationForm()
         {
             InitializeComponent();
         }

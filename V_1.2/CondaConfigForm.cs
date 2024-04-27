@@ -10,9 +10,9 @@ using System.Windows.Forms;
 
 namespace V_1._2
 {
-    public partial class MLParametersForm : Form
+    public partial class CondaConfigForm : Form
     {
-        public MLParametersForm()
+        public CondaConfigForm()
         {
             InitializeComponent();
         }
@@ -26,6 +26,11 @@ namespace V_1._2
         private void button1_Click(object sender, EventArgs e)
         {
             Hide();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
+        {
+
         }
     }
 }

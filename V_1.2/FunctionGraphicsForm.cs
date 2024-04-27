@@ -20,6 +20,12 @@ namespace V_1._2
 
         }
 
+        protected override void OnClosing(CancelEventArgs e)
+        {
+            e.Cancel = true;
+            Hide();
+        }
+
         private void _fillMAEGraph()
         {
 

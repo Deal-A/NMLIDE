@@ -21,6 +21,13 @@ namespace V_1._2
         private MLParametersForm mLParametersForm;
         private FunctionGraphicsForm functionGraphicsForm;
         private MLStartForm mLStartForm;
+        private MLResultForm mLResultForm;
+        private TestSampleValidationForm testSampleValidationForm;
+        private ProtocolForm protocolForm;
+        private ListingForm listingForm;
+
+
+        private ANNType _currentANNType;
 
 
         public MainForm()
@@ -95,6 +102,9 @@ namespace V_1._2
 
             aNNKindChoisingForm = new ANNKindChoisingForm();
 
+            aNNKindChoisingForm.HasTypeNMApplyed += ANNKindChoisingForm_HasTypeNMApplyed;
+
+
             mLParametersForm = new MLParametersForm();
             mLParametersForm.Hide();
 
@@ -104,7 +114,25 @@ namespace V_1._2
             mLStartForm = new MLStartForm();
             mLStartForm.Hide();
 
+            mLResultForm = new MLResultForm();
+            mLResultForm.Hide();
+
+            testSampleValidationForm = new TestSampleValidationForm();
+            testSampleValidationForm.Hide();
+
+            protocolForm = new ProtocolForm();
+            protocolForm.Hide();
+
+            listingForm = new ListingForm();
+            listingForm.Hide();
+
         }
+
+        private void ANNKindChoisingForm_HasTypeNMApplyed(ANNType aNNType)
+        {
+            _currentANNType = aNNType;
+        }
+
         private void simpleButton1_Click(object sender, EventArgs e)
         {
 
@@ -206,6 +234,26 @@ namespace V_1._2
         {
             mLStartForm.ShowDialog();
             functionGraphicsForm.ShowMLMode();
+        }
+
+        private void результатыОбученияToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            mLResultForm.Show();
+        }
+
+        private void проверкаНаТестовойВыборкеToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            testSampleValidationForm.Show();
+        }
+
+        private void протоколToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            protocolForm.Show();
+        }
+
+        private void листингНаPythonToolStripMenuItem_Click(object sender, EventArgs e)
+        {
+            listingForm.Show();
         }
     }
 }

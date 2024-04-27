@@ -182,21 +182,25 @@ namespace V_1._2
             // 
             this.результатыОбученияToolStripMenuItem.Name = "результатыОбученияToolStripMenuItem";
             resources.ApplyResources(this.результатыОбученияToolStripMenuItem, "результатыОбученияToolStripMenuItem");
+            this.результатыОбученияToolStripMenuItem.Click += new System.EventHandler(this.результатыОбученияToolStripMenuItem_Click);
             // 
             // проверкаНаТестовойВыборкеToolStripMenuItem
             // 
             this.проверкаНаТестовойВыборкеToolStripMenuItem.Name = "проверкаНаТестовойВыборкеToolStripMenuItem";
             resources.ApplyResources(this.проверкаНаТестовойВыборкеToolStripMenuItem, "проверкаНаТестовойВыборкеToolStripMenuItem");
+            this.проверкаНаТестовойВыборкеToolStripMenuItem.Click += new System.EventHandler(this.проверкаНаТестовойВыборкеToolStripMenuItem_Click);
             // 
             // протоколToolStripMenuItem
             // 
             this.протоколToolStripMenuItem.Name = "протоколToolStripMenuItem";
             resources.ApplyResources(this.протоколToolStripMenuItem, "протоколToolStripMenuItem");
+            this.протоколToolStripMenuItem.Click += new System.EventHandler(this.протоколToolStripMenuItem_Click);
             // 
             // листингНаPythonToolStripMenuItem
             // 
             this.листингНаPythonToolStripMenuItem.Name = "листингНаPythonToolStripMenuItem";
             resources.ApplyResources(this.листингНаPythonToolStripMenuItem, "листингНаPythonToolStripMenuItem");
+            this.листингНаPythonToolStripMenuItem.Click += new System.EventHandler(this.листингНаPythonToolStripMenuItem_Click);
             // 
             // помощьToolStripMenuItem
             // 
