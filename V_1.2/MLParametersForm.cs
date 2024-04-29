@@ -17,6 +17,11 @@ namespace V_1._2
             InitializeComponent();
         }
 
+        public void SetParamModel() 
+        {
+
+        }
+
         protected override void OnClosing(CancelEventArgs e)
         {
             e.Cancel = true;

@@ -77,7 +77,6 @@ namespace V_1._2
                 growth = true;
             }
 
-
             listView1.ListViewItemSorter = new ListViewItemComparer(e.Column, growth);
 
             listView1.Sort();

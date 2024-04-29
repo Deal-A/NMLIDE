@@ -54,6 +54,7 @@ namespace V_1._2
             this.button1.TabIndex = 1;
             this.button1.Text = "Начать";
             this.button1.UseVisualStyleBackColor = true;
+            this.button1.Click += new System.EventHandler(this.button1_Click);
             // 
             // richTextBox1
             // 
