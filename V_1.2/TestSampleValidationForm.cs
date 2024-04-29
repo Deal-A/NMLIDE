@@ -15,6 +15,22 @@ namespace V_1._2
         public TestSampleValidationForm()
         {
             InitializeComponent();
+            insertPicture();
+        }
+
+        private void insertPicture()
+        {
+
+            Image imageToInsert = Image.FromFile("D:\\_1Study\\ВКР\\P\\V_1\\V_1.2\\Sources\\Нормальное_распределение.png");
+
+
+            Clipboard.SetImage(imageToInsert);
+
+
+
+            richTextBox1.SelectionStart = richTextBox1.Text.Length;
+
+            richTextBox1.Paste();
         }
 
         protected override void OnClosing(CancelEventArgs e)

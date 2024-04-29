@@ -17,7 +17,43 @@ namespace V_1._2
             InitializeComponent();
 
             _fillMAEGraph();
+            _fillMSEGraph();
+            _fillMAPEGraph();
 
+        }
+
+        private void _fillMAPEGraph()
+        {
+            double a = 1, b = 11, h = 0.05, x, y;
+
+            x = a;
+
+            Func<double, double, double> mae = (xx, aa) => Math.Pow(aa,-(xx - 10));
+
+            while (x <= b)
+            {
+                y = mae(x, 3);
+                chart3.Series[0].Points.AddXY(x, y);
+
+                x += h;
+            }
+        }
+
+        private void _fillMSEGraph()
+        {
+            double a = 0.1, b = 11, h = 0.05, x, y;
+
+            x = a;
+
+            Func<double, double, double> mae = (xx, aa) => aa / xx;
+
+            while (x <= b)
+            {
+                y = mae(x, 10);
+                chart2.Series[0].Points.AddXY(x, y);
+
+                x += h;
+            }
         }
 
         protected override void OnClosing(CancelEventArgs e)

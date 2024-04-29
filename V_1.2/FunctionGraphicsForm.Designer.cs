@@ -100,7 +100,7 @@ namespace V_1._2
             this.chart3.TabIndex = 0;
             this.chart3.Text = "chart1";
             title3.Name = "Title1";
-            title3.Text = "Функция потерь (MSLE)";
+            title3.Text = "Функция потерь (MAPE)";
             this.chart3.Titles.Add(title3);
             this.chart3.Click += new System.EventHandler(this.chart1_Click);
             // 
