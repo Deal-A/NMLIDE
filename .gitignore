@@ -11,7 +11,6 @@ Skybound.GeckoFX.bin.v1.8.1.3/*
 ultralight-sdk-1.3.0-win-x64/*
 V_1.2/Firefox/*
 
-./vue-project/**
 
 # User-specific files
 *.rsuser
@@ -407,4 +406,35 @@ FodyWeavers.xsd
 
 # JetBrains Rider
 *.sln.iml
-vue-project
+
+
+# Logs
+vue-project/logs
+vue-project/*.log
+vue-project/npm-debug.log*
+vue-project/yarn-debug.log*
+vue-project/yarn-error.log*
+vue-project/pnpm-debug.log*
+vue-project/lerna-debug.log*
+
+vue-project/node_modules
+vue-project/.DS_Store
+vue-project/dist
+vue-project/dist-ssr
+vue-project/coverage
+vue-project/*.local
+
+vue-project/cypress/videos/
+vue-project/cypress/screenshots/
+
+# Editor directories and files
+vue-project/.vscode/*
+vue-project/!.vscode/extensions.json
+vue-project/.idea
+vue-project/*.suo
+vue-project/*.ntvs*
+vue-project/*.njsproj
+vue-project/*.sln
+vue-project/*.sw?
+
+vue-project/*.tsbuildinfo

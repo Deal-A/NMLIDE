@@ -23,7 +23,7 @@ namespace V_1._2
         HidenLayersSettingsForm HidenLayersSettingsForm;
 
         private string graphUrl = "http://localhost:5173/";
-        private string vueAppPath = "D:\\_1Study\\ВКР\\P\\V_1\\test_vue\\vue-project\\src\\App.vue";
+        private string vueAppPath = "D:\\_1Study\\ВКР\\P\\V_1\\V_1.2\\vue-project\\src\\App.vue";
         private string _initNeuronLStruct = "[1]";
 
         public int inputsCount = 1;
