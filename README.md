@@ -1,7 +1,7 @@
 # Учебная программа
 
 ## Развертывание
-1. Установить Visual Studio 2019. Community или professional - на усмотрение, запустится в любой.
+1. Установить Visual Studio 2019 ( https://visualstudio.microsoft.com/thank-you-downloading-visual-studio/?sku=community&rel=16&utm_medium=microsoft&utm_campaign=download+from+relnotes&utm_content=vs2019ga+button )  Community или professional - на усмотрение, запустится в любой.
 2. Установить следующие модули:
 
 ![image](https://github.com/Deal-A/NMLIDE/assets/167231073/e7b51646-ef85-42bb-94b6-24807444b846)
