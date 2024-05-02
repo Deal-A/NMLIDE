@@ -32,8 +32,8 @@ namespace V_1._2
             this.button1 = new System.Windows.Forms.Button();
             this.button2 = new System.Windows.Forms.Button();
             this.tableLayoutPanel1 = new System.Windows.Forms.TableLayoutPanel();
-            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
             this.panel1 = new System.Windows.Forms.Panel();
+            this.richTextBox1 = new System.Windows.Forms.RichTextBox();
             this.tableLayoutPanel1.SuspendLayout();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
@@ -58,7 +58,7 @@ namespace V_1._2
             this.button2.TabIndex = 0;
             this.button2.Text = "ОК";
             this.button2.UseVisualStyleBackColor = true;
-            this.button2.Click += new System.EventHandler(this.button1_Click);
+            this.button2.Click += new System.EventHandler(this.button2_Click);
             // 
             // tableLayoutPanel1
             // 
@@ -75,18 +75,6 @@ namespace V_1._2
             this.tableLayoutPanel1.Size = new System.Drawing.Size(805, 526);
             this.tableLayoutPanel1.TabIndex = 1;
             // 
-            // richTextBox1
-            // 
-            this.richTextBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
-            this.richTextBox1.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.richTextBox1.Font = new System.Drawing.Font("Courier New", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
-            this.richTextBox1.Location = new System.Drawing.Point(3, 3);
-            this.richTextBox1.Name = "richTextBox1";
-            this.richTextBox1.Size = new System.Drawing.Size(649, 520);
-            this.richTextBox1.TabIndex = 2;
-            this.richTextBox1.Text = "Проверка на тестовом множестве:\nСреднеквадратичная ошибка: 0,17\nСредная ошибка: 0" +
-    ",5\nМаксимальаня абсолютная ошибка: 48,12\n";
-            // 
             // panel1
             // 
             this.panel1.Controls.Add(this.button1);
@@ -97,6 +85,17 @@ namespace V_1._2
             this.panel1.Size = new System.Drawing.Size(144, 520);
             this.panel1.TabIndex = 3;
             // 
+            // richTextBox1
+            // 
+            this.richTextBox1.BorderStyle = System.Windows.Forms.BorderStyle.None;
+            this.richTextBox1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.richTextBox1.Font = new System.Drawing.Font("Courier New", 12F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(0)));
+            this.richTextBox1.Location = new System.Drawing.Point(3, 3);
+            this.richTextBox1.Name = "richTextBox1";
+            this.richTextBox1.Size = new System.Drawing.Size(649, 520);
+            this.richTextBox1.TabIndex = 2;
+            this.richTextBox1.Text = "";
+            // 
             // TestSampleValidationForm
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
@@ -104,6 +103,7 @@ namespace V_1._2
             this.ClientSize = new System.Drawing.Size(805, 526);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Name = "TestSampleValidationForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Проверка на тестовой выборке";
             this.tableLayoutPanel1.ResumeLayout(false);
             this.panel1.ResumeLayout(false);

@@ -102,6 +102,7 @@ namespace V_1._2
             // numericUpDown2
             // 
             this.numericUpDown2.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.numericUpDown2.Enabled = false;
             this.numericUpDown2.Location = new System.Drawing.Point(227, 43);
             this.numericUpDown2.Margin = new System.Windows.Forms.Padding(3, 8, 3, 3);
             this.numericUpDown2.Maximum = new decimal(new int[] {
@@ -138,6 +139,7 @@ namespace V_1._2
             // numericUpDown1
             // 
             this.numericUpDown1.Dock = System.Windows.Forms.DockStyle.Fill;
+            this.numericUpDown1.Enabled = false;
             this.numericUpDown1.Location = new System.Drawing.Point(227, 8);
             this.numericUpDown1.Margin = new System.Windows.Forms.Padding(3, 8, 3, 3);
             this.numericUpDown1.Maximum = new decimal(new int[] {
@@ -154,7 +156,7 @@ namespace V_1._2
             this.numericUpDown1.Size = new System.Drawing.Size(114, 22);
             this.numericUpDown1.TabIndex = 2;
             this.numericUpDown1.Value = new decimal(new int[] {
-            1,
+            2,
             0,
             0,
             0});
@@ -243,6 +245,7 @@ namespace V_1._2
             this.ClientSize = new System.Drawing.Size(1077, 787);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Name = "ANNForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "ИНС";
             this.tableLayoutPanel2.ResumeLayout(false);
             this.tableLayoutPanel2.PerformLayout();

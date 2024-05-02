@@ -94,6 +94,7 @@ namespace V_1._2
             this.ClientSize = new System.Drawing.Size(904, 582);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Name = "MLResultForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Результаты машинного обучения";
             this.tableLayoutPanel1.ResumeLayout(false);
             this.panel1.ResumeLayout(false);

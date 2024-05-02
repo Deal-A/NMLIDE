@@ -42,9 +42,7 @@ namespace V_1._2
             this.radioButton3 = new System.Windows.Forms.RadioButton();
             this.radioButton2 = new System.Windows.Forms.RadioButton();
             this.radioButton1 = new System.Windows.Forms.RadioButton();
-            this.virtualServerModeSource1 = new DevExpress.Data.VirtualServerModeSource(this.components);
             this.panel1.SuspendLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.virtualServerModeSource1)).BeginInit();
             this.SuspendLayout();
             // 
             // label1
@@ -193,11 +191,11 @@ namespace V_1._2
             this.Controls.Add(this.button1);
             this.Controls.Add(this.label1);
             this.Name = "ANNKindChoisingForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Выбор вида искусственной нейронной сети";
             this.Load += new System.EventHandler(this.ANNKindChoisingForm_Load);
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();
-            ((System.ComponentModel.ISupportInitialize)(this.virtualServerModeSource1)).EndInit();
             this.ResumeLayout(false);
             this.PerformLayout();
 
@@ -216,6 +214,5 @@ namespace V_1._2
         private System.Windows.Forms.Label label4;
         private System.Windows.Forms.Label label3;
         private System.Windows.Forms.Label label2;
-        private DevExpress.Data.VirtualServerModeSource virtualServerModeSource1;
     }
 }

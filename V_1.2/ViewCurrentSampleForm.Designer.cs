@@ -45,7 +45,7 @@ namespace V_1._2
             this.listView1.Location = new System.Drawing.Point(0, 0);
             this.listView1.Margin = new System.Windows.Forms.Padding(0);
             this.listView1.Name = "listView1";
-            this.listView1.Size = new System.Drawing.Size(919, 693);
+            this.listView1.Size = new System.Drawing.Size(905, 897);
             this.listView1.TabIndex = 1;
             this.listView1.UseCompatibleStateImageBehavior = false;
             this.listView1.View = System.Windows.Forms.View.Details;
@@ -63,7 +63,7 @@ namespace V_1._2
             this.tableLayoutPanel1.RowCount = 2;
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel1.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 35F));
-            this.tableLayoutPanel1.Size = new System.Drawing.Size(919, 728);
+            this.tableLayoutPanel1.Size = new System.Drawing.Size(905, 932);
             this.tableLayoutPanel1.TabIndex = 2;
             // 
             // tableLayoutPanel2
@@ -73,19 +73,19 @@ namespace V_1._2
             this.tableLayoutPanel2.ColumnStyles.Add(new System.Windows.Forms.ColumnStyle(System.Windows.Forms.SizeType.Absolute, 100F));
             this.tableLayoutPanel2.Controls.Add(this.closeButton, 1, 0);
             this.tableLayoutPanel2.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.tableLayoutPanel2.Location = new System.Drawing.Point(0, 693);
+            this.tableLayoutPanel2.Location = new System.Drawing.Point(0, 897);
             this.tableLayoutPanel2.Margin = new System.Windows.Forms.Padding(0);
             this.tableLayoutPanel2.Name = "tableLayoutPanel2";
             this.tableLayoutPanel2.RowCount = 1;
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Percent, 100F));
             this.tableLayoutPanel2.RowStyles.Add(new System.Windows.Forms.RowStyle(System.Windows.Forms.SizeType.Absolute, 20F));
-            this.tableLayoutPanel2.Size = new System.Drawing.Size(919, 35);
+            this.tableLayoutPanel2.Size = new System.Drawing.Size(905, 35);
             this.tableLayoutPanel2.TabIndex = 2;
             // 
             // closeButton
             // 
             this.closeButton.Dock = System.Windows.Forms.DockStyle.Fill;
-            this.closeButton.Location = new System.Drawing.Point(822, 3);
+            this.closeButton.Location = new System.Drawing.Point(808, 3);
             this.closeButton.Name = "closeButton";
             this.closeButton.Size = new System.Drawing.Size(94, 29);
             this.closeButton.TabIndex = 0;
@@ -97,9 +97,10 @@ namespace V_1._2
             // 
             this.AutoScaleDimensions = new System.Drawing.SizeF(8F, 16F);
             this.AutoScaleMode = System.Windows.Forms.AutoScaleMode.Font;
-            this.ClientSize = new System.Drawing.Size(919, 728);
+            this.ClientSize = new System.Drawing.Size(905, 932);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Name = "ViewCurrentSampleForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Просмотр текущего подмножества";
             this.tableLayoutPanel1.ResumeLayout(false);
             this.tableLayoutPanel2.ResumeLayout(false);

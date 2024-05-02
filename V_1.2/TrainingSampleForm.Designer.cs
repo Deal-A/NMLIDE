@@ -49,8 +49,8 @@ namespace V_1._2
             this.doneButton = new System.Windows.Forms.Button();
             this.button1 = new System.Windows.Forms.Button();
             this.panel1 = new System.Windows.Forms.Panel();
-            this.radioButton1 = new System.Windows.Forms.RadioButton();
             this.radioButton2 = new System.Windows.Forms.RadioButton();
+            this.radioButton1 = new System.Windows.Forms.RadioButton();
             this.panel1.SuspendLayout();
             this.SuspendLayout();
             // 
@@ -255,6 +255,17 @@ namespace V_1._2
             this.panel1.Size = new System.Drawing.Size(56, 82);
             this.panel1.TabIndex = 6;
             // 
+            // radioButton2
+            // 
+            this.radioButton2.AutoSize = true;
+            this.radioButton2.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
+            this.radioButton2.Location = new System.Drawing.Point(3, 38);
+            this.radioButton2.Name = "radioButton2";
+            this.radioButton2.Size = new System.Drawing.Size(40, 33);
+            this.radioButton2.TabIndex = 1;
+            this.radioButton2.Text = ",";
+            this.radioButton2.UseVisualStyleBackColor = true;
+            // 
             // radioButton1
             // 
             this.radioButton1.AutoSize = true;
@@ -267,17 +278,6 @@ namespace V_1._2
             this.radioButton1.TabStop = true;
             this.radioButton1.Text = ";";
             this.radioButton1.UseVisualStyleBackColor = true;
-            // 
-            // radioButton2
-            // 
-            this.radioButton2.AutoSize = true;
-            this.radioButton2.Font = new System.Drawing.Font("Microsoft Sans Serif", 13.8F, System.Drawing.FontStyle.Regular, System.Drawing.GraphicsUnit.Point, ((byte)(204)));
-            this.radioButton2.Location = new System.Drawing.Point(3, 38);
-            this.radioButton2.Name = "radioButton2";
-            this.radioButton2.Size = new System.Drawing.Size(40, 33);
-            this.radioButton2.TabIndex = 1;
-            this.radioButton2.Text = ",";
-            this.radioButton2.UseVisualStyleBackColor = true;
             // 
             // TrainingSampleForm
             // 
@@ -305,6 +305,7 @@ namespace V_1._2
             this.Controls.Add(this.listView2);
             this.Controls.Add(this.listView1);
             this.Name = "TrainingSampleForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Обучающее множество";
             this.panel1.ResumeLayout(false);
             this.panel1.PerformLayout();

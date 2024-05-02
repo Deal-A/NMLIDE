@@ -41,6 +41,16 @@ namespace V_1._2
 
         public event TestFinishedDelegate TestFinished;
 
+        private Font _inputsFont = new Font(
+                    new FontFamily("Verdana"),
+                    12,
+                    FontStyle.Regular,
+                    GraphicsUnit.Pixel
+                    );
+
+
+        private int _crInputsW = 550;
+        private int _crInputsH = 70;
 
 
         private int totalScore = 0;
@@ -223,6 +233,13 @@ namespace V_1._2
                     radioButton.Tag = answer.IsRight; 
                     radioButton.Click += RadioButton_Click;
 
+                    radioButton.Width = _crInputsW;
+                    radioButton.Height = _crInputsH;
+
+                    radioButton.Font = _inputsFont;
+
+                    radioButton.AutoSize = false;
+
                     // Студент ответил на вопрос.
                     if (question.StudentAnswer.Count > 0)
                     {
@@ -239,6 +256,11 @@ namespace V_1._2
                     checkBox.Text = answer.AnswerText;
                     checkBox.Tag = answer.IsRight;
                     checkBox.Click += CheckBox_Click; ;
+
+                    checkBox.Width = _crInputsW;
+                    checkBox.Height = _crInputsH;
+
+                    checkBox.Font = _inputsFont;
 
                     if (containsIndexInStudentState(i))
                     {
@@ -261,6 +283,8 @@ namespace V_1._2
                 {
                     TextBox textBox = new TextBox();
                     textBox.TextChanged += TextBox_TextChanged;
+
+                    textBox.Font = _inputsFont;
 
                     flowLayoutPanel1.Controls.Add(textBox);
                     _currentAnswerControlSet.Add(textBox);

@@ -116,6 +116,7 @@ namespace V_1._2
             this.ClientSize = new System.Drawing.Size(992, 680);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Name = "ProtocolForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Протокол всей работы";
             this.tableLayoutPanel1.ResumeLayout(false);
             this.panel1.ResumeLayout(false);

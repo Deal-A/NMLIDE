@@ -26,6 +26,9 @@ namespace V_1._2
         private ProtocolForm protocolForm;
         private ListingForm listingForm;
 
+        private int inputsCount = 1;
+        private int outputsCount = 1;
+
 
         private ANNType _currentANNType;
 
@@ -198,11 +201,15 @@ namespace V_1._2
 
             loadAnnFormByModel();
             ANNForm.ShowDialog();
+
+
         }
 
         private void loadAnnFormByModel()
         {
-            
+
+            ANNForm.inputsCount = this.inputsCount;
+            ANNForm.outputsCount = this.outputsCount;
         }
 
         private void toolStripMenuItem6_Click(object sender, EventArgs e)

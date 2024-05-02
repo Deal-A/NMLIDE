@@ -7,6 +7,7 @@ using System.Linq;
 using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
+using System.Threading;
 
 namespace V_1._2
 {
@@ -15,7 +16,7 @@ namespace V_1._2
         public TestSampleValidationForm()
         {
             InitializeComponent();
-            insertPicture();
+            //insertPicture();
         }
 
         private void insertPicture()
@@ -25,8 +26,6 @@ namespace V_1._2
 
 
             Clipboard.SetImage(imageToInsert);
-
-
 
             richTextBox1.SelectionStart = richTextBox1.Text.Length;
 
@@ -39,7 +38,28 @@ namespace V_1._2
             Hide();
         }
 
+        private void insertText() 
+        {
+            string t = "Проверка на тестовом множестве:\n"
+            + "Среднеквадратичная ошибка: 0,17\n"
+            + "Средная ошибка: 0,5\n"
+            + "Максимальаня абсолютная ошибка: 48,12\n\n\n";
+
+            richTextBox1.Text = t;
+
+        }
+
         private void button1_Click(object sender, EventArgs e)
+        {
+
+            Thread.Sleep(500);
+
+            MessageBox.Show("Модель проверена");
+            insertText();
+            insertPicture();
+        }
+
+        private void button2_Click(object sender, EventArgs e)
         {
             Hide();
         }

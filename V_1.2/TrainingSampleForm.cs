@@ -13,8 +13,6 @@ using System.Text;
 using System.Threading.Tasks;
 using System.Windows.Forms;
 
-using CsvHelper;
-
 namespace V_1._2
 {
     public partial class TrainingSampleForm : Form
@@ -35,6 +33,9 @@ namespace V_1._2
         private Dictionary<char, RadioButton> _csvSep = new Dictionary<char, RadioButton>();
 
         private int _sourceCount = 0;
+
+        public int xCount = 0;
+        public int yCount = 0;
         public TrainingSampleForm()
         {
             InitializeComponent();
@@ -106,6 +107,24 @@ namespace V_1._2
             }
 
             _sourceCount = _trainSourceModel.Count-1;
+
+            var _xA = _trainSourceModel[0].FindAll(
+                delegate (string f)
+                {
+                    return f.Contains("x");
+                }
+            );
+
+            var _yA = _trainSourceModel[0].FindAll(
+                delegate (string f)
+                {
+                    return f.Contains("y");
+                }
+            );
+
+            xCount = _xA.Count;
+            yCount = _yA.Count;
+                
 
         }
 

@@ -26,6 +26,8 @@ namespace V_1._2
         private string vueAppPath = "D:\\_1Study\\ВКР\\P\\V_1\\test_vue\\vue-project\\src\\App.vue";
         private string _initNeuronLStruct = "[1]";
 
+        public int inputsCount = 1;
+        public int outputsCount = 1;
         public ANNForm()
         {
             InitializeComponent();

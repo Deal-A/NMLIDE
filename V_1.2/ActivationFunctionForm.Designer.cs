@@ -159,6 +159,7 @@ namespace V_1._2
             this.ClientSize = new System.Drawing.Size(1078, 648);
             this.Controls.Add(this.tableLayoutPanel1);
             this.Name = "ActivationFunctionForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Изменение активационной функции слоя";
             this.tableLayoutPanel1.ResumeLayout(false);
             this.panel1.ResumeLayout(false);

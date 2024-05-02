@@ -89,6 +89,7 @@ namespace V_1._2
             this.Controls.Add(this.button1);
             this.Controls.Add(this.dataGridView1);
             this.Name = "MLParametersForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "MLParametersForm";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);

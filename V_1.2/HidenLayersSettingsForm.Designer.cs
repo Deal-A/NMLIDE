@@ -162,6 +162,7 @@ namespace V_1._2
             this.Controls.Add(this.button1);
             this.Controls.Add(this.dataGridView1);
             this.Name = "HidenLayersSettingsForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Изменение настроек скрытых слоев";
             ((System.ComponentModel.ISupportInitialize)(this.dataGridView1)).EndInit();
             this.ResumeLayout(false);

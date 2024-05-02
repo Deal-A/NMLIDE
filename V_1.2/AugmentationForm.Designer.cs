@@ -118,6 +118,7 @@ namespace V_1._2
             this.Controls.Add(this.listView2);
             this.Controls.Add(this.listView1);
             this.Name = "AugmentationForm";
+            this.StartPosition = System.Windows.Forms.FormStartPosition.CenterScreen;
             this.Text = "Аугментация";
             this.ResumeLayout(false);
             this.PerformLayout();
