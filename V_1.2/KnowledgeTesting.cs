@@ -66,7 +66,7 @@ namespace V_1._2
         private void _initFields()
         {
             _questionPreviewRTBList = new List<RichTextBox>();
-            test = JsonConvert.DeserializeObject<Test>(File.ReadAllText("D:\\_1Study\\ВКР\\P\\V_1\\V_1.2\\Sources\\KnowledgeTestData_3q.json"));
+            test = JsonConvert.DeserializeObject<Test>(File.ReadAllText("..\\..\\..\\..\\Sources\\KnowledgeTestData_3q.json"));
 
 
             _currentAnswerControlSet = new List<object>();
