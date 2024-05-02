@@ -24,6 +24,7 @@ namespace V_1._2
 
         private string graphUrl = "http://localhost:5173/";
         private string vueAppPath = "D:\\_1Study\\ВКР\\P\\V_1\\V_1.2\\vue-project\\src\\App.vue";
+        private string _vueAppRelPath = "vue-project\\src\\App.vue";
         private string _initNeuronLStruct = "[1]";
 
         public int inputsCount = 1;
@@ -83,6 +84,12 @@ namespace V_1._2
 
         private void updateLineReload(string l, int n) 
         {
+            //var solutionPath = System.IO.Path.GetDirectoryName(System.Reflection.Assembly.GetExecutingAssembly().Location);
+
+            
+
+           // var path = Path.Combine(vueAppPath, _vueAppRelPath);
+
             ChangeLine(vueAppPath, n, l);
         }
 

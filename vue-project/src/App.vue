@@ -19,7 +19,7 @@ const mpConfig =
 {
   inputs:2,
   outputs:1,
-  hidenLayersArr : [10,3,7]
+  hidenLayersArr : [5,3,7]
 }
 
 const gridStepG = 50
