@@ -3,7 +3,9 @@
 ## Развертывание
 1. Установить Visual Studio 2019. Community или professional - на усмотрение, запустится в любой.
 2. Установить следующие модули:
- ![image](https://github.com/Deal-A/NMLIDE/assets/167231073/553eb169-bbaf-49fe-932e-467631696e05)
+
+ ![image](https://github.com/Deal-A/NMLIDE/assets/167231073/32944230-a504-473a-b971-9647d4d20611)
+
 
 3. Запустить команду "git clone https://github.com/Deal-A/NMLIDE" в папке с проектом.
 4. Установить node.js. https://nodejs.org/en/download
