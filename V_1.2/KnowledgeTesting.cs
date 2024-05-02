@@ -79,10 +79,7 @@ namespace V_1._2
                     GraphicsUnit.Pixel
                     );
 
-            ///var a = tryJson.Questions[0].Answers.ToArray();
-
-            //test = JsonConvert.DeserializeObject<Test>(File.ReadAllText("D:\\_1Study\\ВКР\\P\\V_1\\V_1.2\\Sources\\TryJson.json"));
-            //test = System.Text.Json.JsonSerializer.Deserialize<Test>(File.ReadAllText("D:\\_1Study\\ВКР\\P\\V_1\\V_1.2\\Sources\\KnowledgeTestData.json"));
+            
             _questions = test.Questions;
 
             KnowledgeTestProtocolForm = new KnowledgeTestProtocolForm();
